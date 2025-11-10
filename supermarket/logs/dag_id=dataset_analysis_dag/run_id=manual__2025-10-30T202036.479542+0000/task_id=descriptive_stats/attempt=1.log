@@ -1,0 +1,38 @@
+[2025-10-30T20:20:59.162+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dataset_analysis_dag.descriptive_stats manual__2025-10-30T20:20:36.479542+00:00 [queued]>
+[2025-10-30T20:20:59.171+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dataset_analysis_dag.descriptive_stats manual__2025-10-30T20:20:36.479542+00:00 [queued]>
+[2025-10-30T20:20:59.172+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 4
+[2025-10-30T20:20:59.187+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): descriptive_stats> on 2025-10-30 20:20:36.479542+00:00
+[2025-10-30T20:20:59.193+0000] {standard_task_runner.py:60} INFO - Started process 715 to run task
+[2025-10-30T20:20:59.197+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dataset_analysis_dag', 'descriptive_stats', 'manual__2025-10-30T20:20:36.479542+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/dataset_analysis_dag.py', '--cfg-path', '/tmp/tmpn0kqc3q9']
+[2025-10-30T20:20:59.198+0000] {standard_task_runner.py:88} INFO - Job 16: Subtask descriptive_stats
+[2025-10-30T20:20:59.265+0000] {task_command.py:423} INFO - Running <TaskInstance: dataset_analysis_dag.descriptive_stats manual__2025-10-30T20:20:36.479542+00:00 [running]> on host f8a733c3dfd5
+[2025-10-30T20:20:59.360+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='you' AIRFLOW_CTX_DAG_ID='dataset_analysis_dag' AIRFLOW_CTX_TASK_ID='descriptive_stats' AIRFLOW_CTX_EXECUTION_DATE='2025-10-30T20:20:36.479542+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-30T20:20:36.479542+00:00'
+[2025-10-30T20:21:12.454+0000] {logging_mixin.py:188} INFO - 
+=== ESTADÍSTICAS NUMÉRICAS ===
+[2025-10-30T20:21:12.455+0000] {logging_mixin.py:188} INFO - 
+--- NUM_PRODUCTS ---
+[2025-10-30T20:21:12.549+0000] {logging_mixin.py:188} INFO -        num_products
+25%    3.000000e+00
+50%    6.000000e+00
+75%    1.200000e+01
+count  1.108987e+06
+max    1.280000e+02
+mean   9.550872e+00
+min    1.000000e+00
+std    9.999499e+00
+[2025-10-30T20:21:12.550+0000] {logging_mixin.py:188} INFO - Moda: [1]
+[2025-10-30T20:21:12.550+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dataset_analysis_dag.py", line 176, in descriptive_stats
+    print(f"Outliers: {stats_results['outliers'][var]}")
+KeyError: 'num_products'
+[2025-10-30T20:21:12.566+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=dataset_analysis_dag, task_id=descriptive_stats, execution_date=20251030T202036, start_date=20251030T202059, end_date=20251030T202112
+[2025-10-30T20:21:12.575+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 16 for task descriptive_stats ('num_products'; 715)
+[2025-10-30T20:21:12.621+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-10-30T20:21:12.639+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,14 @@
+[2025-11-07T12:54:28.763+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dataset_analysis_dag.generate_plots manual__2025-11-07T12:50:17.090193+00:00 [queued]>
+[2025-11-07T12:54:28.778+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dataset_analysis_dag.generate_plots manual__2025-11-07T12:50:17.090193+00:00 [queued]>
+[2025-11-07T12:54:28.780+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 4
+[2025-11-07T12:54:28.802+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): generate_plots> on 2025-11-07 12:50:17.090193+00:00
+[2025-11-07T12:54:28.815+0000] {standard_task_runner.py:60} INFO - Started process 3309 to run task
+[2025-11-07T12:54:28.821+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dataset_analysis_dag', 'generate_plots', 'manual__2025-11-07T12:50:17.090193+00:00', '--job-id', '31', '--raw', '--subdir', 'DAGS_FOLDER/dataset_analysis_dag.py', '--cfg-path', '/tmp/tmpczi6ugpb']
+[2025-11-07T12:54:28.823+0000] {standard_task_runner.py:88} INFO - Job 31: Subtask generate_plots
+[2025-11-07T12:54:28.915+0000] {task_command.py:423} INFO - Running <TaskInstance: dataset_analysis_dag.generate_plots manual__2025-11-07T12:50:17.090193+00:00 [running]> on host 07e4f6cb044d
+[2025-11-07T12:54:29.022+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Marin_Botina' AIRFLOW_CTX_DAG_ID='dataset_analysis_dag' AIRFLOW_CTX_TASK_ID='generate_plots' AIRFLOW_CTX_EXECUTION_DATE='2025-11-07T12:50:17.090193+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-07T12:50:17.090193+00:00'
+[2025-11-07T12:54:54.044+0000] {logging_mixin.py:188} INFO - Plots generated and saved to files
+[2025-11-07T12:54:54.075+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-11-07T12:54:54.087+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=dataset_analysis_dag, task_id=generate_plots, execution_date=20251107T125017, start_date=20251107T125428, end_date=20251107T125454
+[2025-11-07T12:54:54.141+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-11-07T12:54:54.163+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

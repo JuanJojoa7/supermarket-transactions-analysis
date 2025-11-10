@@ -1,0 +1,59 @@
+[2025-11-07T12:30:57.533+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dataset_analysis_dag.descriptive_stats manual__2025-11-07T12:29:55.707467+00:00 [queued]>
+[2025-11-07T12:30:57.544+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dataset_analysis_dag.descriptive_stats manual__2025-11-07T12:29:55.707467+00:00 [queued]>
+[2025-11-07T12:30:57.545+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 4
+[2025-11-07T12:30:57.562+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): descriptive_stats> on 2025-11-07 12:29:55.707467+00:00
+[2025-11-07T12:30:57.574+0000] {standard_task_runner.py:60} INFO - Started process 1192 to run task
+[2025-11-07T12:30:57.578+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dataset_analysis_dag', 'descriptive_stats', 'manual__2025-11-07T12:29:55.707467+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/dataset_analysis_dag.py', '--cfg-path', '/tmp/tmpen2fvt36']
+[2025-11-07T12:30:57.580+0000] {standard_task_runner.py:88} INFO - Job 17: Subtask descriptive_stats
+[2025-11-07T12:30:57.684+0000] {task_command.py:423} INFO - Running <TaskInstance: dataset_analysis_dag.descriptive_stats manual__2025-11-07T12:29:55.707467+00:00 [running]> on host 07e4f6cb044d
+[2025-11-07T12:30:57.794+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Marin_Botina' AIRFLOW_CTX_DAG_ID='dataset_analysis_dag' AIRFLOW_CTX_TASK_ID='descriptive_stats' AIRFLOW_CTX_EXECUTION_DATE='2025-11-07T12:29:55.707467+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-07T12:29:55.707467+00:00'
+[2025-11-07T12:31:29.970+0000] {logging_mixin.py:188} INFO - 
+=== ESTADÍSTICAS NUMÉRICAS ===
+[2025-11-07T12:31:29.971+0000] {logging_mixin.py:188} INFO - 
+--- NUM_PRODUCTS ---
+[2025-11-07T12:31:30.150+0000] {logging_mixin.py:188} INFO -        num_products
+25%    3.000000e+00
+50%    6.000000e+00
+75%    1.200000e+01
+count  1.108987e+06
+max    1.280000e+02
+mean   9.550872e+00
+min    1.000000e+00
+std    9.999499e+00
+[2025-11-07T12:31:30.151+0000] {logging_mixin.py:188} INFO - Moda: [1]
+[2025-11-07T12:31:30.152+0000] {logging_mixin.py:188} INFO - Outliers: {'count': 89733, 'min_outlier': 26.0, 'max_outlier': 128.0}
+[2025-11-07T12:31:30.153+0000] {logging_mixin.py:188} INFO - 
+=== ESTADÍSTICAS CATEGÓRICAS ===
+[2025-11-07T12:31:30.153+0000] {logging_mixin.py:188} INFO - Top categorías:
+[2025-11-07T12:31:30.154+0000] {logging_mixin.py:188} INFO - Categoría 2: 23258 productos (20.76%)
+[2025-11-07T12:31:30.155+0000] {logging_mixin.py:188} INFO - Categoría 9: 5279 productos (4.71%)
+[2025-11-07T12:31:30.155+0000] {logging_mixin.py:188} INFO - Categoría 11: 4869 productos (4.35%)
+[2025-11-07T12:31:30.155+0000] {logging_mixin.py:188} INFO - Categoría 13: 4541 productos (4.05%)
+[2025-11-07T12:31:30.156+0000] {logging_mixin.py:188} INFO - Categoría 8: 4260 productos (3.8%)
+[2025-11-07T12:31:30.156+0000] {logging_mixin.py:188} INFO - Categoría 14: 3784 productos (3.38%)
+[2025-11-07T12:31:30.156+0000] {logging_mixin.py:188} INFO - Categoría 40: 3693 productos (3.3%)
+[2025-11-07T12:31:30.157+0000] {logging_mixin.py:188} INFO - Categoría 48: 3434 productos (3.07%)
+[2025-11-07T12:31:30.157+0000] {logging_mixin.py:188} INFO - Categoría 22: 3422 productos (3.06%)
+[2025-11-07T12:31:30.157+0000] {logging_mixin.py:188} INFO - Categoría 5: 3322 productos (2.97%)
+[2025-11-07T12:31:30.158+0000] {logging_mixin.py:188} INFO - 
+Top productos:
+[2025-11-07T12:31:30.158+0000] {logging_mixin.py:188} INFO - Producto 5: 300526 veces
+[2025-11-07T12:31:30.158+0000] {logging_mixin.py:188} INFO - Producto 10: 290313 veces
+[2025-11-07T12:31:30.159+0000] {logging_mixin.py:188} INFO - Producto 3: 269855 veces
+[2025-11-07T12:31:30.159+0000] {logging_mixin.py:188} INFO - Producto 4: 260418 veces
+[2025-11-07T12:31:30.160+0000] {logging_mixin.py:188} INFO - Producto 6: 254644 veces
+[2025-11-07T12:31:30.160+0000] {logging_mixin.py:188} INFO - Producto 8: 253899 veces
+[2025-11-07T12:31:30.160+0000] {logging_mixin.py:188} INFO - Producto 7: 225877 veces
+[2025-11-07T12:31:30.160+0000] {logging_mixin.py:188} INFO - Producto 16: 224159 veces
+[2025-11-07T12:31:30.161+0000] {logging_mixin.py:188} INFO - Producto 11: 221968 veces
+[2025-11-07T12:31:30.161+0000] {logging_mixin.py:188} INFO - Producto 9: 212480 veces
+[2025-11-07T12:31:30.162+0000] {logging_mixin.py:188} INFO - 
+Top stores:
+[2025-11-07T12:31:30.163+0000] {logging_mixin.py:188} INFO - Store 103: 407130 transacciones (36.71%)
+[2025-11-07T12:31:30.163+0000] {logging_mixin.py:188} INFO - Store 102: 314286 transacciones (28.34%)
+[2025-11-07T12:31:30.164+0000] {logging_mixin.py:188} INFO - Store 107: 254633 transacciones (22.96%)
+[2025-11-07T12:31:30.164+0000] {logging_mixin.py:188} INFO - Store 110: 132938 transacciones (11.99%)
+[2025-11-07T12:31:30.428+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-11-07T12:31:30.444+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=dataset_analysis_dag, task_id=descriptive_stats, execution_date=20251107T122955, start_date=20251107T123057, end_date=20251107T123130
+[2025-11-07T12:31:30.541+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-11-07T12:31:30.589+0000] {taskinstance.py:3280} INFO - 3 downstream tasks scheduled from follow-on schedule check

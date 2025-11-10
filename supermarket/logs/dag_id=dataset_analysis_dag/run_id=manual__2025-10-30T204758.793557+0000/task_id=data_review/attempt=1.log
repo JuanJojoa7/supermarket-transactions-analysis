@@ -1,0 +1,37 @@
+[2025-10-30T20:48:17.772+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dataset_analysis_dag.data_review manual__2025-10-30T20:47:58.793557+00:00 [queued]>
+[2025-10-30T20:48:17.784+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dataset_analysis_dag.data_review manual__2025-10-30T20:47:58.793557+00:00 [queued]>
+[2025-10-30T20:48:17.784+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 4
+[2025-10-30T20:48:17.801+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): data_review> on 2025-10-30 20:47:58.793557+00:00
+[2025-10-30T20:48:17.809+0000] {standard_task_runner.py:60} INFO - Started process 205 to run task
+[2025-10-30T20:48:17.813+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dataset_analysis_dag', 'data_review', 'manual__2025-10-30T20:47:58.793557+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/dataset_analysis_dag.py', '--cfg-path', '/tmp/tmpo66n7br2']
+[2025-10-30T20:48:17.814+0000] {standard_task_runner.py:88} INFO - Job 28: Subtask data_review
+[2025-10-30T20:48:17.883+0000] {task_command.py:423} INFO - Running <TaskInstance: dataset_analysis_dag.data_review manual__2025-10-30T20:47:58.793557+00:00 [running]> on host 7ca9719123a0
+[2025-10-30T20:48:17.959+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='you' AIRFLOW_CTX_DAG_ID='dataset_analysis_dag' AIRFLOW_CTX_TASK_ID='data_review' AIRFLOW_CTX_EXECUTION_DATE='2025-10-30T20:47:58.793557+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-30T20:47:58.793557+00:00'
+[2025-10-30T20:48:25.375+0000] {logging_mixin.py:188} INFO - 
+=== CATEGORIES ===
+[2025-10-30T20:48:25.375+0000] {logging_mixin.py:188} INFO - num_records: 50
+[2025-10-30T20:48:25.376+0000] {logging_mixin.py:188} INFO - num_columns: 2
+[2025-10-30T20:48:25.376+0000] {logging_mixin.py:188} INFO - columns: ['category_id', 'category_name']
+[2025-10-30T20:48:25.377+0000] {logging_mixin.py:188} INFO - dtypes: {'category_id': 'int64', 'category_name': 'object'}
+[2025-10-30T20:48:25.377+0000] {logging_mixin.py:188} INFO - nulls: {'category_id': 0, 'category_name': 0}
+[2025-10-30T20:48:25.378+0000] {logging_mixin.py:188} INFO - duplicates: 0
+[2025-10-30T20:48:25.378+0000] {logging_mixin.py:188} INFO - 
+=== PRODUCT_CATEGORY ===
+[2025-10-30T20:48:25.378+0000] {logging_mixin.py:188} INFO - num_records: 112011
+[2025-10-30T20:48:25.379+0000] {logging_mixin.py:188} INFO - num_columns: 2
+[2025-10-30T20:48:25.379+0000] {logging_mixin.py:188} INFO - columns: ['product_code', 'category_id']
+[2025-10-30T20:48:25.379+0000] {logging_mixin.py:188} INFO - dtypes: {'product_code': 'object', 'category_id': 'object'}
+[2025-10-30T20:48:25.379+0000] {logging_mixin.py:188} INFO - nulls: {'product_code': 0, 'category_id': 0}
+[2025-10-30T20:48:25.380+0000] {logging_mixin.py:188} INFO - duplicates: 18473
+[2025-10-30T20:48:25.380+0000] {logging_mixin.py:188} INFO - 
+=== TRANSACTIONS ===
+[2025-10-30T20:48:25.380+0000] {logging_mixin.py:188} INFO - num_records: 1108987
+[2025-10-30T20:48:25.380+0000] {logging_mixin.py:188} INFO - num_columns: 4
+[2025-10-30T20:48:25.380+0000] {logging_mixin.py:188} INFO - columns: ['date', 'store', 'customer', 'products']
+[2025-10-30T20:48:25.381+0000] {logging_mixin.py:188} INFO - dtypes: {'date': 'datetime64[ns]', 'store': 'int64', 'customer': 'int64', 'products': 'object'}
+[2025-10-30T20:48:25.381+0000] {logging_mixin.py:188} INFO - nulls: {'date': 0, 'store': 0, 'customer': 0, 'products': 0}
+[2025-10-30T20:48:25.381+0000] {logging_mixin.py:188} INFO - duplicates: 1
+[2025-10-30T20:48:25.430+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-10-30T20:48:25.439+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=dataset_analysis_dag, task_id=data_review, execution_date=20251030T204758, start_date=20251030T204817, end_date=20251030T204825
+[2025-10-30T20:48:25.497+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-10-30T20:48:25.518+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

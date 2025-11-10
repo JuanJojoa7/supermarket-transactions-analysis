@@ -1,0 +1,30 @@
+[2025-11-07T12:51:55.434+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dataset_analysis_dag.customer_analysis manual__2025-11-07T12:50:17.090193+00:00 [queued]>
+[2025-11-07T12:51:55.458+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dataset_analysis_dag.customer_analysis manual__2025-11-07T12:50:17.090193+00:00 [queued]>
+[2025-11-07T12:51:55.459+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 4
+[2025-11-07T12:51:55.489+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): customer_analysis> on 2025-11-07 12:50:17.090193+00:00
+[2025-11-07T12:51:55.507+0000] {standard_task_runner.py:60} INFO - Started process 3091 to run task
+[2025-11-07T12:51:55.515+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dataset_analysis_dag', 'customer_analysis', 'manual__2025-11-07T12:50:17.090193+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/dataset_analysis_dag.py', '--cfg-path', '/tmp/tmp9wzq8ib8']
+[2025-11-07T12:51:55.519+0000] {standard_task_runner.py:88} INFO - Job 28: Subtask customer_analysis
+[2025-11-07T12:51:55.640+0000] {task_command.py:423} INFO - Running <TaskInstance: dataset_analysis_dag.customer_analysis manual__2025-11-07T12:50:17.090193+00:00 [running]> on host 07e4f6cb044d
+[2025-11-07T12:51:55.773+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Marin_Botina' AIRFLOW_CTX_DAG_ID='dataset_analysis_dag' AIRFLOW_CTX_TASK_ID='customer_analysis' AIRFLOW_CTX_EXECUTION_DATE='2025-11-07T12:50:17.090193+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-07T12:50:17.090193+00:00'
+[2025-11-07T12:53:12.620+0000] {logging_mixin.py:188} INFO - 
+=== ANÁLISIS DE CLIENTES ===
+[2025-11-07T12:53:12.621+0000] {logging_mixin.py:188} INFO - 
+Frecuencia de compra:
+[2025-11-07T12:53:12.622+0000] {logging_mixin.py:188} INFO - Promedio de compras por cliente: 8.45
+[2025-11-07T12:53:12.622+0000] {logging_mixin.py:188} INFO - Mediana de compras por cliente: 4.00
+[2025-11-07T12:53:12.622+0000] {logging_mixin.py:188} INFO - Máximo de compras de un cliente: 535
+[2025-11-07T12:53:12.623+0000] {logging_mixin.py:188} INFO - 
+Tiempo entre compras:
+[2025-11-07T12:53:12.623+0000] {logging_mixin.py:188} INFO - Promedio: 11.99 días
+[2025-11-07T12:53:12.623+0000] {logging_mixin.py:188} INFO - Mediana: 7.00 días
+[2025-11-07T12:53:12.624+0000] {logging_mixin.py:188} INFO - 
+Segmentación de clientes:
+[2025-11-07T12:53:12.624+0000] {logging_mixin.py:188} INFO - Regular: 91471 clientes
+[2025-11-07T12:53:12.624+0000] {logging_mixin.py:188} INFO - High Value: 27067 clientes
+[2025-11-07T12:53:12.624+0000] {logging_mixin.py:188} INFO - Frequent: 6755 clientes
+[2025-11-07T12:53:12.625+0000] {logging_mixin.py:188} INFO - Big Spender: 5893 clientes
+[2025-11-07T12:53:12.748+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-11-07T12:53:12.764+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=dataset_analysis_dag, task_id=customer_analysis, execution_date=20251107T125017, start_date=20251107T125155, end_date=20251107T125312
+[2025-11-07T12:53:12.856+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-11-07T12:53:12.894+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

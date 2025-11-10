@@ -1,0 +1,32 @@
+[2025-11-07T12:52:53.818+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dataset_analysis_dag.product_association manual__2025-11-07T12:50:17.090193+00:00 [queued]>
+[2025-11-07T12:52:53.830+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dataset_analysis_dag.product_association manual__2025-11-07T12:50:17.090193+00:00 [queued]>
+[2025-11-07T12:52:53.831+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 4
+[2025-11-07T12:52:53.846+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): product_association> on 2025-11-07 12:50:17.090193+00:00
+[2025-11-07T12:52:53.855+0000] {standard_task_runner.py:60} INFO - Started process 3172 to run task
+[2025-11-07T12:52:53.859+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dataset_analysis_dag', 'product_association', 'manual__2025-11-07T12:50:17.090193+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/dataset_analysis_dag.py', '--cfg-path', '/tmp/tmpcq8whbif']
+[2025-11-07T12:52:53.861+0000] {standard_task_runner.py:88} INFO - Job 30: Subtask product_association
+[2025-11-07T12:52:53.939+0000] {task_command.py:423} INFO - Running <TaskInstance: dataset_analysis_dag.product_association manual__2025-11-07T12:50:17.090193+00:00 [running]> on host 07e4f6cb044d
+[2025-11-07T12:52:54.037+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Marin_Botina' AIRFLOW_CTX_DAG_ID='dataset_analysis_dag' AIRFLOW_CTX_TASK_ID='product_association' AIRFLOW_CTX_EXECUTION_DATE='2025-11-07T12:50:17.090193+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-07T12:50:17.090193+00:00'
+[2025-11-07T12:54:25.553+0000] {logging_mixin.py:188} INFO - 
+=== ANÁLISIS DE ASOCIACIÓN DE PRODUCTOS ===
+[2025-11-07T12:54:25.553+0000] {logging_mixin.py:188} INFO - 
+Total de transacciones: 1108987
+[2025-11-07T12:54:25.554+0000] {logging_mixin.py:188} INFO - Items frecuentes encontrados: 142
+[2025-11-07T12:54:25.555+0000] {logging_mixin.py:188} INFO - Pares frecuentes encontrados: 1833
+[2025-11-07T12:54:25.555+0000] {logging_mixin.py:188} INFO - Reglas generadas: 1490
+[2025-11-07T12:54:25.556+0000] {logging_mixin.py:188} INFO - 
+Top 10 reglas de asociación (ordenadas por lift):
+[2025-11-07T12:54:25.556+0000] {logging_mixin.py:188} INFO - 1. 98 -> 51: Support=0.0125, Confidence=0.6158, Lift=12.5739
+[2025-11-07T12:54:25.557+0000] {logging_mixin.py:188} INFO - 2. 97 -> 51: Support=0.0134, Confidence=0.5947, Lift=12.1431
+[2025-11-07T12:54:25.557+0000] {logging_mixin.py:188} INFO - 3. 76 -> 53: Support=0.0141, Confidence=0.5317, Lift=11.7645
+[2025-11-07T12:54:25.558+0000] {logging_mixin.py:188} INFO - 4. 53 -> 76: Support=0.0141, Confidence=0.3112, Lift=11.7645
+[2025-11-07T12:54:25.559+0000] {logging_mixin.py:188} INFO - 5. 51 -> 62: Support=0.0161, Confidence=0.3282, Lift=9.3514
+[2025-11-07T12:54:25.559+0000] {logging_mixin.py:188} INFO - 6. 62 -> 51: Support=0.0161, Confidence=0.4580, Lift=9.3514
+[2025-11-07T12:54:25.560+0000] {logging_mixin.py:188} INFO - 7. 87 -> 68: Support=0.0114, Confidence=0.4495, Lift=7.3501
+[2025-11-07T12:54:25.560+0000] {logging_mixin.py:188} INFO - 8. 70 -> 51: Support=0.0103, Confidence=0.3475, Lift=7.0954
+[2025-11-07T12:54:25.561+0000] {logging_mixin.py:188} INFO - 9. 51 -> 68: Support=0.0208, Confidence=0.4253, Lift=6.9544
+[2025-11-07T12:54:25.561+0000] {logging_mixin.py:188} INFO - 10. 68 -> 51: Support=0.0208, Confidence=0.3406, Lift=6.9544
+[2025-11-07T12:54:25.970+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-11-07T12:54:25.980+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=dataset_analysis_dag, task_id=product_association, execution_date=20251107T125017, start_date=20251107T125253, end_date=20251107T125425
+[2025-11-07T12:54:26.050+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-11-07T12:54:26.075+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

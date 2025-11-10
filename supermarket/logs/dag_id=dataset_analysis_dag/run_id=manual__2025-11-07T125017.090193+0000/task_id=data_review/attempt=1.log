@@ -1,0 +1,37 @@
+[2025-11-07T12:50:44.093+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dataset_analysis_dag.data_review manual__2025-11-07T12:50:17.090193+00:00 [queued]>
+[2025-11-07T12:50:44.108+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dataset_analysis_dag.data_review manual__2025-11-07T12:50:17.090193+00:00 [queued]>
+[2025-11-07T12:50:44.109+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 4
+[2025-11-07T12:50:44.123+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): data_review> on 2025-11-07 12:50:17.090193+00:00
+[2025-11-07T12:50:44.132+0000] {standard_task_runner.py:60} INFO - Started process 2984 to run task
+[2025-11-07T12:50:44.136+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dataset_analysis_dag', 'data_review', 'manual__2025-11-07T12:50:17.090193+00:00', '--job-id', '25', '--raw', '--subdir', 'DAGS_FOLDER/dataset_analysis_dag.py', '--cfg-path', '/tmp/tmpsyegraqn']
+[2025-11-07T12:50:44.138+0000] {standard_task_runner.py:88} INFO - Job 25: Subtask data_review
+[2025-11-07T12:50:44.241+0000] {task_command.py:423} INFO - Running <TaskInstance: dataset_analysis_dag.data_review manual__2025-11-07T12:50:17.090193+00:00 [running]> on host 07e4f6cb044d
+[2025-11-07T12:50:44.332+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Marin_Botina' AIRFLOW_CTX_DAG_ID='dataset_analysis_dag' AIRFLOW_CTX_TASK_ID='data_review' AIRFLOW_CTX_EXECUTION_DATE='2025-11-07T12:50:17.090193+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-07T12:50:17.090193+00:00'
+[2025-11-07T12:51:14.154+0000] {logging_mixin.py:188} INFO - 
+=== CATEGORIES ===
+[2025-11-07T12:51:14.156+0000] {logging_mixin.py:188} INFO - num_records: 50
+[2025-11-07T12:51:14.157+0000] {logging_mixin.py:188} INFO - num_columns: 2
+[2025-11-07T12:51:14.157+0000] {logging_mixin.py:188} INFO - columns: ['category_id', 'category_name']
+[2025-11-07T12:51:14.158+0000] {logging_mixin.py:188} INFO - dtypes: {'category_id': 'int64', 'category_name': 'object'}
+[2025-11-07T12:51:14.159+0000] {logging_mixin.py:188} INFO - nulls: {'category_id': 0, 'category_name': 0}
+[2025-11-07T12:51:14.159+0000] {logging_mixin.py:188} INFO - duplicates: 0
+[2025-11-07T12:51:14.160+0000] {logging_mixin.py:188} INFO - 
+=== PRODUCT_CATEGORY ===
+[2025-11-07T12:51:14.160+0000] {logging_mixin.py:188} INFO - num_records: 112011
+[2025-11-07T12:51:14.160+0000] {logging_mixin.py:188} INFO - num_columns: 2
+[2025-11-07T12:51:14.161+0000] {logging_mixin.py:188} INFO - columns: ['product_code', 'category_id']
+[2025-11-07T12:51:14.161+0000] {logging_mixin.py:188} INFO - dtypes: {'product_code': 'object', 'category_id': 'object'}
+[2025-11-07T12:51:14.162+0000] {logging_mixin.py:188} INFO - nulls: {'product_code': 0, 'category_id': 0}
+[2025-11-07T12:51:14.162+0000] {logging_mixin.py:188} INFO - duplicates: 18473
+[2025-11-07T12:51:14.163+0000] {logging_mixin.py:188} INFO - 
+=== TRANSACTIONS ===
+[2025-11-07T12:51:14.164+0000] {logging_mixin.py:188} INFO - num_records: 1108987
+[2025-11-07T12:51:14.164+0000] {logging_mixin.py:188} INFO - num_columns: 9
+[2025-11-07T12:51:14.165+0000] {logging_mixin.py:188} INFO - columns: ['date', 'store', 'customer', 'products', 'year', 'month', 'week', 'day_of_week', 'day_name']
+[2025-11-07T12:51:14.165+0000] {logging_mixin.py:188} INFO - dtypes: {'date': 'datetime64[ns]', 'store': 'int64', 'customer': 'int64', 'products': 'object', 'year': 'int64', 'month': 'int64', 'week': 'int64', 'day_of_week': 'int64', 'day_name': 'object'}
+[2025-11-07T12:51:14.166+0000] {logging_mixin.py:188} INFO - nulls: {'date': 0, 'store': 0, 'customer': 0, 'products': 0, 'year': 0, 'month': 0, 'week': 0, 'day_of_week': 0, 'day_name': 0}
+[2025-11-07T12:51:14.166+0000] {logging_mixin.py:188} INFO - duplicates: 1
+[2025-11-07T12:51:14.283+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-11-07T12:51:14.301+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=dataset_analysis_dag, task_id=data_review, execution_date=20251107T125017, start_date=20251107T125044, end_date=20251107T125114
+[2025-11-07T12:51:14.364+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-11-07T12:51:14.424+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

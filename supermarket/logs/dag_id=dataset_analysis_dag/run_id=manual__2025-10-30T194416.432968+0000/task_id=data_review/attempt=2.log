@@ -1,0 +1,80 @@
+[2025-10-30T19:45:17.861+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dataset_analysis_dag.data_review manual__2025-10-30T19:44:16.432968+00:00 [queued]>
+[2025-10-30T19:45:17.867+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dataset_analysis_dag.data_review manual__2025-10-30T19:44:16.432968+00:00 [queued]>
+[2025-10-30T19:45:17.868+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 4
+[2025-10-30T19:45:17.881+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): data_review> on 2025-10-30 19:44:16.432968+00:00
+[2025-10-30T19:45:17.887+0000] {standard_task_runner.py:60} INFO - Started process 372 to run task
+[2025-10-30T19:45:17.890+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dataset_analysis_dag', 'data_review', 'manual__2025-10-30T19:44:16.432968+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/dataset_analysis_dag.py', '--cfg-path', '/tmp/tmpi9x3ztwc']
+[2025-10-30T19:45:17.891+0000] {standard_task_runner.py:88} INFO - Job 5: Subtask data_review
+[2025-10-30T19:45:17.951+0000] {task_command.py:423} INFO - Running <TaskInstance: dataset_analysis_dag.data_review manual__2025-10-30T19:44:16.432968+00:00 [running]> on host f8a733c3dfd5
+[2025-10-30T19:45:18.021+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='you' AIRFLOW_CTX_DAG_ID='dataset_analysis_dag' AIRFLOW_CTX_TASK_ID='data_review' AIRFLOW_CTX_EXECUTION_DATE='2025-10-30T19:44:16.432968+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-30T19:44:16.432968+00:00'
+[2025-10-30T19:45:29.590+0000] {logging_mixin.py:188} INFO - 
+=== CATEGORIES ===
+[2025-10-30T19:45:29.595+0000] {logging_mixin.py:188} INFO - num_records: 50
+[2025-10-30T19:45:29.604+0000] {logging_mixin.py:188} INFO - num_columns: 2
+[2025-10-30T19:45:29.607+0000] {logging_mixin.py:188} INFO - columns: ['category_id', 'category_name']
+[2025-10-30T19:45:29.607+0000] {logging_mixin.py:188} INFO - dtypes: {'category_id': dtype('int64'), 'category_name': dtype('O')}
+[2025-10-30T19:45:29.608+0000] {logging_mixin.py:188} INFO - nulls: {'category_id': 0, 'category_name': 0}
+[2025-10-30T19:45:29.609+0000] {logging_mixin.py:188} INFO - duplicates: 0
+[2025-10-30T19:45:29.609+0000] {logging_mixin.py:188} INFO - 
+=== PRODUCT_CATEGORY ===
+[2025-10-30T19:45:29.610+0000] {logging_mixin.py:188} INFO - num_records: 112011
+[2025-10-30T19:45:29.611+0000] {logging_mixin.py:188} INFO - num_columns: 2
+[2025-10-30T19:45:29.612+0000] {logging_mixin.py:188} INFO - columns: ['product_code', 'category_id']
+[2025-10-30T19:45:29.612+0000] {logging_mixin.py:188} INFO - dtypes: {'product_code': dtype('O'), 'category_id': dtype('O')}
+[2025-10-30T19:45:29.612+0000] {logging_mixin.py:188} INFO - nulls: {'product_code': 0, 'category_id': 0}
+[2025-10-30T19:45:29.613+0000] {logging_mixin.py:188} INFO - duplicates: 18473
+[2025-10-30T19:45:29.613+0000] {logging_mixin.py:188} INFO - 
+=== TRANSACTIONS ===
+[2025-10-30T19:45:29.614+0000] {logging_mixin.py:188} INFO - num_records: 1108987
+[2025-10-30T19:45:29.614+0000] {logging_mixin.py:188} INFO - num_columns: 4
+[2025-10-30T19:45:29.614+0000] {logging_mixin.py:188} INFO - columns: ['date', 'store', 'customer', 'products']
+[2025-10-30T19:45:29.615+0000] {logging_mixin.py:188} INFO - dtypes: {'date': dtype('<M8[ns]'), 'store': dtype('int64'), 'customer': dtype('int64'), 'products': dtype('O')}
+[2025-10-30T19:45:29.615+0000] {logging_mixin.py:188} INFO - nulls: {'date': 0, 'store': 0, 'customer': 0, 'products': 0}
+[2025-10-30T19:45:29.616+0000] {logging_mixin.py:188} INFO - duplicates: 1
+[2025-10-30T19:45:29.633+0000] {xcom.py:664} ERROR - Object of type dtype[int64] is not JSON serializable. If you are using pickle instead of JSON for XCom, then you need to enable pickle support for XCom in your *** config or make sure to decorate your object with attr.
+[2025-10-30T19:45:29.636+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/json.py", line 91, in default
+    return serialize(o)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/serialization/serde.py", line 180, in serialize
+    raise TypeError(f"cannot serialize object of type {cls}")
+TypeError: cannot serialize object of type <class 'numpy.dtype[int64]'>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dataset_analysis_dag.py", line 97, in data_review
+    context['ti'].xcom_push(key='review_results', value=review_results)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/session.py", line 79, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 2980, in xcom_push
+    XCom.set(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/session.py", line 76, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/xcom.py", line 247, in set
+    value = cls.serialize_value(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/xcom.py", line 662, in serialize_value
+    return json.dumps(value, cls=XComEncoder).encode("UTF-8")
+  File "/usr/local/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/json.py", line 104, in encode
+    return super().encode(o)
+  File "/usr/local/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/json.py", line 93, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type dtype[int64] is not JSON serializable
+[2025-10-30T19:45:29.650+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=dataset_analysis_dag, task_id=data_review, execution_date=20251030T194416, start_date=20251030T194517, end_date=20251030T194529
+[2025-10-30T19:45:29.761+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 5 for task data_review (Object of type dtype[int64] is not JSON serializable; 372)
+[2025-10-30T19:45:29.892+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-10-30T19:45:29.970+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

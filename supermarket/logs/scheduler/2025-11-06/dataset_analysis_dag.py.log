@@ -1,0 +1,195 @@
+[2025-11-06T22:20:35.431+0000] {processor.py:161} INFO - Started process (PID=180) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:20:35.463+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:20:35.493+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:20:35.482+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:20:52.113+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:20:52.056+0000] {font_manager.py:1547} INFO - generated new fontManager
+[2025-11-06T22:20:56.420+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:20:57.736+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:20:57.731+0000] {override.py:1769} INFO - Created Permission View: can delete on DAG:dataset_analysis_dag
+[2025-11-06T22:20:57.797+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:20:57.796+0000] {override.py:1769} INFO - Created Permission View: can read on DAG:dataset_analysis_dag
+[2025-11-06T22:20:58.101+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:20:58.100+0000] {override.py:1769} INFO - Created Permission View: can edit on DAG:dataset_analysis_dag
+[2025-11-06T22:20:58.127+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:20:58.126+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:20:58.370+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:20:58.367+0000] {dag.py:3058} INFO - Creating ORM DAG for dataset_analysis_dag
+[2025-11-06T22:20:58.375+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:20:58.374+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:20:58.803+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 22.043 seconds
+[2025-11-06T22:21:38.455+0000] {processor.py:161} INFO - Started process (PID=276) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:21:38.457+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:21:38.459+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:21:38.458+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:21:48.979+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:21:49.140+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:21:49.138+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:21:49.182+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:21:49.182+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:21:49.296+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 9.417 seconds
+[2025-11-06T22:22:20.554+0000] {processor.py:161} INFO - Started process (PID=361) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:22:20.556+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:22:20.561+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:22:20.560+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:22:27.714+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:22:28.062+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:22:28.061+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:22:28.164+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:22:28.162+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:22:29.147+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 8.603 seconds
+[2025-11-06T22:23:01.264+0000] {processor.py:161} INFO - Started process (PID=447) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:23:01.296+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:23:01.310+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:23:01.301+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:33:05.035+0000] {processor.py:161} INFO - Started process (PID=114) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:33:05.044+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:33:05.049+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:33:05.048+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:33:16.537+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:33:16.537+0000] {font_manager.py:1547} INFO - generated new fontManager
+[2025-11-06T22:33:16.946+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:33:17.160+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:33:17.159+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:33:17.186+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:33:17.185+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:33:17.238+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 10.779 seconds
+[2025-11-06T22:33:48.032+0000] {processor.py:161} INFO - Started process (PID=201) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:33:48.033+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:33:48.035+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:33:48.035+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:33:49.396+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:33:49.435+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:33:49.433+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:33:49.456+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:33:49.456+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:33:49.508+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 1.480 seconds
+[2025-11-06T22:34:20.640+0000] {processor.py:161} INFO - Started process (PID=280) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:34:20.642+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:34:20.646+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:34:20.645+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:34:23.962+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:34:24.245+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:34:24.243+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:34:24.324+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:34:24.323+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:34:24.968+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 4.343 seconds
+[2025-11-06T22:34:55.257+0000] {processor.py:161} INFO - Started process (PID=356) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:34:55.258+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:34:55.260+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:34:55.259+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:34:56.804+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:34:56.868+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:34:56.867+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:34:56.902+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:34:56.902+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:34:57.234+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 1.982 seconds
+[2025-11-06T22:35:27.607+0000] {processor.py:161} INFO - Started process (PID=431) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:35:27.609+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:35:27.613+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:35:27.612+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:35:34.962+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:35:35.026+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:35:35.023+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:35:35.101+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:35:35.098+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:35:35.184+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 7.591 seconds
+[2025-11-06T22:36:05.943+0000] {processor.py:161} INFO - Started process (PID=522) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:36:05.945+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:36:05.949+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:36:05.948+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:36:08.495+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:36:08.562+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:36:08.561+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:36:08.599+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:36:08.598+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:36:08.687+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 2.756 seconds
+[2025-11-06T22:36:39.406+0000] {processor.py:161} INFO - Started process (PID=598) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:36:39.408+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:36:39.410+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:36:39.410+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:36:41.708+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:36:41.789+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:36:41.787+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:36:41.856+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:36:41.855+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:36:41.948+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 2.550 seconds
+[2025-11-06T22:37:12.254+0000] {processor.py:161} INFO - Started process (PID=684) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:37:12.255+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:37:12.258+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:37:12.257+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:37:13.583+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:37:13.631+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:37:13.630+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:37:13.653+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:37:13.652+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:37:13.694+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 1.447 seconds
+[2025-11-06T22:37:44.272+0000] {processor.py:161} INFO - Started process (PID=767) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:37:44.275+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:37:44.278+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:37:44.277+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:37:46.994+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:37:47.084+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:37:47.082+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:37:47.211+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:37:47.209+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:37:47.398+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 3.139 seconds
+[2025-11-06T22:39:19.732+0000] {processor.py:161} INFO - Started process (PID=803) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:39:19.740+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:39:19.795+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:39:19.788+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:40:06.105+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:40:06.084+0000] {timeout.py:68} ERROR - Process timed out, PID: 803
+[2025-11-06T22:40:06.107+0000] {logging_mixin.py:188} WARNING - Exception ignored in: <function _collection_gced at 0x7f2d7e10b700>
+[2025-11-06T22:40:06.119+0000] {logging_mixin.py:188} WARNING - Traceback (most recent call last):
+[2025-11-06T22:40:06.119+0000] {logging_mixin.py:188} WARNING -   File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/event/registry.py", line 53, in _collection_gced
+[2025-11-06T22:40:06.132+0000] {logging_mixin.py:188} WARNING -     def _collection_gced(ref):
+[2025-11-06T22:40:06.133+0000] {logging_mixin.py:188} WARNING -   File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/timeout.py", line 69, in handle_timeout
+[2025-11-06T22:40:06.145+0000] {logging_mixin.py:188} WARNING -     raise AirflowTaskTimeout(self.error_message)
+[2025-11-06T22:40:06.148+0000] {logging_mixin.py:188} WARNING - airflow.exceptions.AirflowTaskTimeout: DagBag import timeout for /opt/airflow/dags/dataset_analysis_dag.py after 30.0s.
+Please take a look at these docs to improve your DAG import time:
+* https://airflow.apache.org/docs/apache-airflow/2.8.1/best-practices.html#top-level-python-code
+* https://airflow.apache.org/docs/apache-airflow/2.8.1/best-practices.html#reducing-dag-complexity, PID: 803
+[2025-11-06T22:40:10.215+0000] {processor.py:161} INFO - Started process (PID=856) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:40:10.234+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:40:10.247+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:40:10.244+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:40:19.551+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:40:19.714+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:40:19.713+0000] {taskinstance.py:2700} ERROR - {'DAG Id': 'dataset_analysis_dag', 'Task Id': 'customer_analysis', 'Run Id': 'manual__2025-11-06T22:34:22.250425+00:00', 'Hostname': 'd6185d1f83fb', 'External Executor Id': '5c271bde-5192-4907-b1ca-26d78f6a5a7f'}
+[2025-11-06T22:40:19.785+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:40:19.785+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=dataset_analysis_dag, task_id=customer_analysis, execution_date=20251106T223422, start_date=20251106T223742, end_date=20251106T224019
+[2025-11-06T22:40:19.841+0000] {processor.py:791} INFO - Executed failure callback for <TaskInstance: dataset_analysis_dag.customer_analysis manual__2025-11-06T22:34:22.250425+00:00 [up_for_retry]> in state up_for_retry
+[2025-11-06T22:40:19.862+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:40:19.862+0000] {taskinstance.py:2700} ERROR - {'DAG Id': 'dataset_analysis_dag', 'Task Id': 'customer_analysis', 'Run Id': 'manual__2025-11-06T22:34:22.250425+00:00', 'Hostname': 'd6185d1f83fb', 'External Executor Id': '5c271bde-5192-4907-b1ca-26d78f6a5a7f'}
+[2025-11-06T22:40:19.909+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:40:19.908+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=dataset_analysis_dag, task_id=customer_analysis, execution_date=20251106T223422, start_date=20251106T223742, end_date=20251106T224019
+[2025-11-06T22:40:19.982+0000] {processor.py:791} INFO - Executed failure callback for <TaskInstance: dataset_analysis_dag.customer_analysis manual__2025-11-06T22:34:22.250425+00:00 [up_for_retry]> in state up_for_retry
+[2025-11-06T22:40:20.003+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:40:20.002+0000] {taskinstance.py:2700} ERROR - {'DAG Id': 'dataset_analysis_dag', 'Task Id': 'customer_analysis', 'Run Id': 'manual__2025-11-06T22:34:22.250425+00:00', 'Hostname': 'd6185d1f83fb', 'External Executor Id': '5c271bde-5192-4907-b1ca-26d78f6a5a7f'}
+[2025-11-06T22:40:20.098+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:40:20.098+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=dataset_analysis_dag, task_id=customer_analysis, execution_date=20251106T223422, start_date=20251106T223742, end_date=20251106T224020
+[2025-11-06T22:40:20.149+0000] {processor.py:791} INFO - Executed failure callback for <TaskInstance: dataset_analysis_dag.customer_analysis manual__2025-11-06T22:34:22.250425+00:00 [up_for_retry]> in state up_for_retry
+[2025-11-06T22:40:20.222+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:40:20.221+0000] {taskinstance.py:2700} ERROR - {'DAG Id': 'dataset_analysis_dag', 'Task Id': 'customer_analysis', 'Run Id': 'manual__2025-11-06T22:34:22.250425+00:00', 'Hostname': 'd6185d1f83fb', 'External Executor Id': '5c271bde-5192-4907-b1ca-26d78f6a5a7f'}
+[2025-11-06T22:40:20.292+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:40:20.290+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=dataset_analysis_dag, task_id=customer_analysis, execution_date=20251106T223422, start_date=20251106T223742, end_date=20251106T224020
+[2025-11-06T22:40:20.329+0000] {processor.py:791} INFO - Executed failure callback for <TaskInstance: dataset_analysis_dag.customer_analysis manual__2025-11-06T22:34:22.250425+00:00 [up_for_retry]> in state up_for_retry
+[2025-11-06T22:40:20.470+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:40:20.469+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:40:20.579+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:40:20.579+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:40:20.675+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 10.528 seconds
+[2025-11-06T22:40:51.645+0000] {processor.py:161} INFO - Started process (PID=944) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:40:51.733+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:40:51.764+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:40:51.763+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:41:06.510+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:41:06.909+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:41:06.881+0000] {taskinstance.py:2700} ERROR - {'DAG Id': 'dataset_analysis_dag', 'Task Id': 'customer_analysis', 'Run Id': 'manual__2025-11-06T22:34:22.250425+00:00', 'Hostname': 'd6185d1f83fb', 'External Executor Id': '5c271bde-5192-4907-b1ca-26d78f6a5a7f'}
+[2025-11-06T22:41:07.525+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:41:07.525+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=dataset_analysis_dag, task_id=customer_analysis, execution_date=20251106T223422, start_date=20251106T223742, end_date=20251106T224107
+[2025-11-06T22:41:07.623+0000] {processor.py:791} INFO - Executed failure callback for <TaskInstance: dataset_analysis_dag.customer_analysis manual__2025-11-06T22:34:22.250425+00:00 [up_for_retry]> in state up_for_retry
+[2025-11-06T22:41:08.895+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:41:08.893+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:41:09.078+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:41:09.077+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:41:09.377+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 16.176 seconds
+[2025-11-06T22:41:40.103+0000] {processor.py:161} INFO - Started process (PID=1040) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:41:40.105+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:41:40.108+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:41:40.107+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:41:41.333+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:41:41.746+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:41:41.745+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:41:43.082+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:41:43.082+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:41:43.417+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 3.325 seconds
+[2025-11-06T22:42:13.763+0000] {processor.py:161} INFO - Started process (PID=1122) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:42:13.770+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:42:13.775+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:42:13.774+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:42:20.475+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:42:20.749+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:42:20.748+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:42:20.895+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:42:20.895+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:42:21.178+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 7.431 seconds
+[2025-11-06T22:42:52.101+0000] {processor.py:161} INFO - Started process (PID=1195) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:42:52.112+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:42:52.118+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:42:52.116+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:43:14.109+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:43:14.173+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:43:14.172+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:43:14.214+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:43:14.213+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:43:14.283+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 20.621 seconds
+[2025-11-06T22:43:45.130+0000] {processor.py:161} INFO - Started process (PID=1287) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:43:45.133+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:43:45.136+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:43:45.135+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:43:49.031+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:43:49.102+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:43:49.101+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:43:49.144+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:43:49.143+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:43:49.222+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 4.107 seconds
+[2025-11-06T22:44:53.587+0000] {processor.py:161} INFO - Started process (PID=1386) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:44:53.616+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:44:53.621+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:44:53.620+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:45:15.661+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:45:16.813+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:45:16.812+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:45:17.140+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:45:17.128+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:45:17.905+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 22.962 seconds
+[2025-11-06T22:45:54.204+0000] {processor.py:161} INFO - Started process (PID=1479) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:45:54.210+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:45:54.213+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:45:54.212+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:45:57.967+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:45:58.105+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:45:58.104+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:45:58.160+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:45:58.159+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:45:59.087+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 4.898 seconds
+[2025-11-06T22:46:29.839+0000] {processor.py:161} INFO - Started process (PID=1564) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:46:29.868+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:46:29.874+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:46:29.872+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:46:33.268+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:46:33.334+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:46:33.329+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:46:33.396+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:46:33.395+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:46:33.579+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 3.771 seconds
+[2025-11-06T22:47:04.118+0000] {processor.py:161} INFO - Started process (PID=1644) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:47:04.123+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:47:04.128+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:47:04.126+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:47:08.426+0000] {processor.py:840} INFO - DAG(s) 'dataset_analysis_dag' retrieved from /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:47:08.578+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:47:08.577+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-06T22:47:08.667+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:47:08.666+0000] {dag.py:3823} INFO - Setting next_dagrun for dataset_analysis_dag to None, run_after=None
+[2025-11-06T22:47:08.767+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dataset_analysis_dag.py took 4.663 seconds
+[2025-11-06T22:47:46.180+0000] {processor.py:161} INFO - Started process (PID=1704) to work on /opt/airflow/dags/dataset_analysis_dag.py
+[2025-11-06T22:47:46.222+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dataset_analysis_dag.py for tasks to queue
+[2025-11-06T22:47:46.322+0000] {logging_mixin.py:188} INFO - [2025-11-06T22:47:46.249+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dataset_analysis_dag.py

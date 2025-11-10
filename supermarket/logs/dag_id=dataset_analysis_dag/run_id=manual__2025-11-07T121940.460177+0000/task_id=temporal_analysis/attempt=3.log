@@ -1,0 +1,59 @@
+[2025-11-07T12:23:18.762+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dataset_analysis_dag.temporal_analysis manual__2025-11-07T12:19:40.460177+00:00 [queued]>
+[2025-11-07T12:23:18.777+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dataset_analysis_dag.temporal_analysis manual__2025-11-07T12:19:40.460177+00:00 [queued]>
+[2025-11-07T12:23:18.779+0000] {taskinstance.py:2170} INFO - Starting attempt 3 of 4
+[2025-11-07T12:23:18.799+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): temporal_analysis> on 2025-11-07 12:19:40.460177+00:00
+[2025-11-07T12:23:18.810+0000] {standard_task_runner.py:60} INFO - Started process 507 to run task
+[2025-11-07T12:23:18.816+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dataset_analysis_dag', 'temporal_analysis', 'manual__2025-11-07T12:19:40.460177+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/dataset_analysis_dag.py', '--cfg-path', '/tmp/tmpncqts2b7']
+[2025-11-07T12:23:18.821+0000] {standard_task_runner.py:88} INFO - Job 11: Subtask temporal_analysis
+[2025-11-07T12:23:18.920+0000] {task_command.py:423} INFO - Running <TaskInstance: dataset_analysis_dag.temporal_analysis manual__2025-11-07T12:19:40.460177+00:00 [running]> on host 07e4f6cb044d
+[2025-11-07T12:23:19.030+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Marin_Botina' AIRFLOW_CTX_DAG_ID='dataset_analysis_dag' AIRFLOW_CTX_TASK_ID='temporal_analysis' AIRFLOW_CTX_EXECUTION_DATE='2025-11-07T12:19:40.460177+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-07T12:19:40.460177+00:00'
+[2025-11-07T12:24:01.007+0000] {logging_mixin.py:188} INFO - 
+=== ANÁLISIS TEMPORAL ===
+[2025-11-07T12:24:01.008+0000] {logging_mixin.py:188} INFO - 
+Estadísticas diarias:
+[2025-11-07T12:24:01.009+0000] {logging_mixin.py:188} INFO - Media de transacciones diarias: 6127.00
+[2025-11-07T12:24:01.009+0000] {logging_mixin.py:188} INFO - Máximo de transacciones en un día: 9476
+[2025-11-07T12:24:01.009+0000] {logging_mixin.py:188} INFO - Mínimo de transacciones en un día: 2860
+[2025-11-07T12:24:01.010+0000] {logging_mixin.py:188} INFO - 
+Ventas por día de la semana:
+[2025-11-07T12:24:01.010+0000] {logging_mixin.py:188} INFO - Monday: 142445 transacciones, 1301747 productos
+[2025-11-07T12:24:01.011+0000] {logging_mixin.py:188} INFO - Tuesday: 150739 transacciones, 1606571 productos
+[2025-11-07T12:24:01.011+0000] {logging_mixin.py:188} INFO - Wednesday: 137245 transacciones, 1175689 productos
+[2025-11-07T12:24:01.011+0000] {logging_mixin.py:188} INFO - Thursday: 158766 transacciones, 1506585 productos
+[2025-11-07T12:24:01.012+0000] {logging_mixin.py:188} INFO - Friday: 139371 transacciones, 1213602 productos
+[2025-11-07T12:24:01.013+0000] {logging_mixin.py:188} INFO - Saturday: 189015 transacciones, 1860948 productos
+[2025-11-07T12:24:01.014+0000] {logging_mixin.py:188} INFO - Sunday: 191406 transacciones, 1926651 productos
+[2025-11-07T12:24:01.031+0000] {xcom.py:664} ERROR - keys must be str, int, float, bool or None, not Timestamp. If you are using pickle instead of JSON for XCom, then you need to enable pickle support for XCom in your *** config or make sure to decorate your object with attr.
+[2025-11-07T12:24:01.034+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dataset_analysis_dag.py", line 268, in temporal_analysis
+    context['ti'].xcom_push(key='temporal_results', value=temporal_results)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/session.py", line 79, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 2980, in xcom_push
+    XCom.set(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/session.py", line 76, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/xcom.py", line 247, in set
+    value = cls.serialize_value(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/xcom.py", line 662, in serialize_value
+    return json.dumps(value, cls=XComEncoder).encode("UTF-8")
+  File "/usr/local/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/json.py", line 104, in encode
+    return super().encode(o)
+  File "/usr/local/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+TypeError: keys must be str, int, float, bool or None, not Timestamp
+[2025-11-07T12:24:01.054+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=dataset_analysis_dag, task_id=temporal_analysis, execution_date=20251107T121940, start_date=20251107T122318, end_date=20251107T122401
+[2025-11-07T12:24:01.076+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 11 for task temporal_analysis (keys must be str, int, float, bool or None, not Timestamp; 507)
+[2025-11-07T12:24:01.171+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-11-07T12:24:01.229+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

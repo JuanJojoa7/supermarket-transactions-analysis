@@ -1,0 +1,24 @@
+[2025-11-06T22:42:14.594+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dataset_analysis_dag.customer_analysis manual__2025-11-06T22:34:22.250425+00:00 [queued]>
+[2025-11-06T22:42:14.646+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dataset_analysis_dag.customer_analysis manual__2025-11-06T22:34:22.250425+00:00 [queued]>
+[2025-11-06T22:42:14.648+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 4
+[2025-11-06T22:42:14.698+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): customer_analysis> on 2025-11-06 22:34:22.250425+00:00
+[2025-11-06T22:42:14.720+0000] {standard_task_runner.py:60} INFO - Started process 507 to run task
+[2025-11-06T22:42:14.730+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'dataset_analysis_dag', 'customer_analysis', 'manual__2025-11-06T22:34:22.250425+00:00', '--job-id', '12', '--raw', '--subdir', 'DAGS_FOLDER/dataset_analysis_dag.py', '--cfg-path', '/tmp/tmpqmpmwh3h']
+[2025-11-06T22:42:14.738+0000] {standard_task_runner.py:88} INFO - Job 12: Subtask customer_analysis
+[2025-11-06T22:42:15.273+0000] {task_command.py:423} INFO - Running <TaskInstance: dataset_analysis_dag.customer_analysis manual__2025-11-06T22:34:22.250425+00:00 [running]> on host d6185d1f83fb
+[2025-11-06T22:42:15.710+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Marin_Botina' AIRFLOW_CTX_DAG_ID='dataset_analysis_dag' AIRFLOW_CTX_TASK_ID='customer_analysis' AIRFLOW_CTX_EXECUTION_DATE='2025-11-06T22:34:22.250425+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-06T22:34:22.250425+00:00'
+[2025-11-06T22:47:51.058+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dataset_analysis_dag.py", line 297, in customer_analysis
+    if len(dates) > 1:
+TypeError: object of type 'Timestamp' has no len()
+[2025-11-06T22:47:51.879+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=dataset_analysis_dag, task_id=customer_analysis, execution_date=20251106T223422, start_date=20251106T224214, end_date=20251106T224751
+[2025-11-06T22:47:52.602+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 12 for task customer_analysis (object of type 'Timestamp' has no len(); 507)
+[2025-11-06T22:47:53.494+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-11-06T22:47:56.896+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
