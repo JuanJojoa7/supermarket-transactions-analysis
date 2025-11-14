@@ -83,12 +83,28 @@ mode = st.radio('Modo', ['Por Cliente', 'Por Producto'])
 if mode == 'Por Cliente':
     cust_id = st.text_input('ID Cliente', '')
     if cust_id:
-        rec = requests.get(f"{API_BASE}/recommend/customer/{cust_id}").json()
-        st.write(rec['recommendations'])
+        try:
+            rec = requests.get(f"{API_BASE}/recommend/customer/{cust_id}").json()
+            if rec.get('recommendations'):
+                st.write("**Recomendaciones:**")
+                for i, r in enumerate(rec['recommendations'], 1):
+                    st.write(f"{i}. Producto **{r['consequent']}** (lift: {r['lift']:.2f}, confianza: {r['confidence']:.2f})")
+            else:
+                st.warning(f"No hay recomendaciones disponibles para el cliente {cust_id}")
+        except Exception as e:
+            st.error(f"Error: {e}")
 else:
     prod_id = st.text_input('Código Producto', '')
     if prod_id:
-        rec = requests.get(f"{API_BASE}/recommend/product/{prod_id}").json()
-        st.write(rec['recommendations'])
+        try:
+            rec = requests.get(f"{API_BASE}/recommend/product/{prod_id}").json()
+            if rec.get('recommendations'):
+                st.write("**Recomendaciones:**")
+                for i, r in enumerate(rec['recommendations'], 1):
+                    st.write(f"{i}. Producto **{r['consequent']}** (lift: {r['lift']:.2f}, confianza: {r['confidence']:.2f})")
+            else:
+                st.warning(f"No hay recomendaciones disponibles para el producto {prod_id}. Intenta con productos más populares (ej: 5, 10, 3, 4, 6, 8, 7, 16)")
+        except Exception as e:
+            st.error(f"Error: {e}")
 
 st.caption('© Proyecto de Análisis de Transacciones de Supermercado')

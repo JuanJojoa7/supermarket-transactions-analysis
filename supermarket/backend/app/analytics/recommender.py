@@ -41,7 +41,8 @@ def build_association_rules() -> Dict[str, Any]:
             rules.append({'antecedent': b, 'consequent': a, 'support': support_ab, 'confidence': conf_ba, 'lift': lift_ba})
 
     rules_sorted = sorted(rules, key=lambda r: r['lift'], reverse=True)
-    return {'rules': rules_sorted[:50], 'frequent_items': frequent_items}
+    # Guardar TODAS las reglas, no solo 50, para que recommend_for_product funcione correctamente
+    return {'rules': rules_sorted, 'frequent_items': frequent_items}
 
 
 _cached_rules: Dict[str, Any] = {}

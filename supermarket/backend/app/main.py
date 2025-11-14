@@ -71,7 +71,13 @@ def recommend_product(product_code: str, top_n: int = 5) -> Dict[str, Any]:
 
 @app.get("/rules")
 def rules() -> Dict[str, Any]:
-    return get_rules()
+    all_rules = get_rules()
+    # Devolver solo las top 50 reglas para el endpoint /rules
+    return {
+        'rules': all_rules['rules'][:50],
+        'frequent_items': all_rules['frequent_items'],
+        'total_rules': len(all_rules['rules'])
+    }
 
 
 @app.post("/insights/generate")
