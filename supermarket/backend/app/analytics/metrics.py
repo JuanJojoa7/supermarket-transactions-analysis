@@ -4,12 +4,21 @@ from .ingestion import repo
 
 
 def executive_summary() -> Dict[str, Any]:
+    """
+    Genera un resumen ejecutivo con métricas clave del negocio.
+    
+    Returns:
+        Diccionario con métricas agregadas: ventas, transacciones, top productos/clientes/días
+    """
     data = repo.data
     tx = data.transactions
     ex = data.transactions_exploded
 
-    total_units = int(ex.shape[0])  # total productos (unit = producto)
+    total_units = int(ex.shape[0])  # total productos vendidos
     num_transactions = int(tx.shape[0])
+    unique_customers = int(tx['customer'].nunique())
+    unique_products = int(ex['product_code'].nunique())
+    
     top_products = ex['product_code'].value_counts().head(10).to_dict()
     top_clients = tx['customer'].value_counts().head(10).to_dict()
 
@@ -18,7 +27,7 @@ def executive_summary() -> Dict[str, Any]:
     peak_days = daily.sort_values(ascending=False).head(10)
     peak_days_dict = {str(d.date()): int(v) for d, v in peak_days.items()}
 
-    # Categorías "más rentables" => usamos volumen relativo
+    # Categorías con mayor volumen relativo
     ex['category_id'] = ex['category_id'].fillna('UNKNOWN')
     cat_counts = ex['category_id'].value_counts()
     cat_freq_rel = (cat_counts / cat_counts.sum()).head(10)
@@ -27,6 +36,8 @@ def executive_summary() -> Dict[str, Any]:
     return {
         'total_units': total_units,
         'num_transactions': num_transactions,
+        'unique_customers': unique_customers,
+        'unique_products': unique_products,
         'top_products': top_products,
         'top_clients': top_clients,
         'peak_days': peak_days_dict,
@@ -35,6 +46,15 @@ def executive_summary() -> Dict[str, Any]:
 
 
 def time_series(level: str = 'daily') -> Dict[str, Any]:
+    """
+    Genera series temporales agregadas de transacciones y productos.
+    
+    Args:
+        level: Nivel de agregación ('daily', 'weekly', 'monthly')
+    
+    Returns:
+        Diccionario con datos agregados por período
+    """
     tx = repo.data.transactions.copy()
     tx['num_products'] = tx['num_products']
     if level == 'daily':
@@ -49,6 +69,15 @@ def time_series(level: str = 'daily') -> Dict[str, Any]:
 
 
 def boxplot_data(by: str = 'customer') -> Dict[str, Any]:
+    """
+    Genera datos para boxplot de distribución.
+    
+    Args:
+        by: Dimensión de análisis ('customer' o 'category')
+    
+    Returns:
+        Series de datos y estadísticas descriptivas
+    """
     ex = repo.data.transactions_exploded
     tx = repo.data.transactions
     if by == 'customer':
@@ -62,6 +91,12 @@ def boxplot_data(by: str = 'customer') -> Dict[str, Any]:
 
 
 def heatmap_features() -> Dict[str, Any]:
+    """
+    Calcula matriz de correlación entre características de clientes.
+    
+    Returns:
+        Nombres de columnas y matriz de correlación
+    """
     feats = repo.customer_features().drop(columns=['customer'])
     corr = feats.corr().round(4)
     return {'columns': corr.columns.tolist(), 'matrix': corr.values.tolist()}
