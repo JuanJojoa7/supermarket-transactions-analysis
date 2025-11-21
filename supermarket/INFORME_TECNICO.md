@@ -813,6 +813,47 @@ POST http://localhost:8000/upload/transactions
 ### Citas y Recursos Web
 
 - Universidad Icesi. (s. f.). Modelo k‑means. En Introducción al clustering. Recuperado el 20 de noviembre de 2025, de https://www.icesi.edu.co/editorial/intro-clustering-web/kMeans.html
+- Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M., & Duchesnay, É. (2011). Scikit‑learn: Machine Learning in Python. Journal of Machine Learning Research, 12, 2825–2830. https://jmlr.org/papers/v12/pedregosa11a.html
+- McKinney, W. (2010). Data Structures for Statistical Computing in Python. Proceedings of the 9th Python in Science Conference, 51–56. http://conference.scipy.org/proceedings/scipy2010/mckinney.html
+- Ramírez, S. (2020). FastAPI [Software]. https://fastapi.tiangolo.com
+- Jojoa, J., & Gonzalez, J. (2025). supermarket-transactions-analysis [Repositorio]. GitHub. https://github.com/JuanJojoa7/supermarket-transactions-analysis
+
+### Reproducibilidad
+
+Para reproducir los resultados y regenerar los artefactos (`report_numbers.json`, `business_insights.json`, y las visualizaciones), desde la raíz del repositorio (`supermarket`) ejecutar lo siguiente en PowerShell:
+
+```powershell
+# Establecer variables de entorno (PowerShell)
+$env:DATASET_DIR = $PWD
+$env:RESULTS_DIR = (Join-Path $PWD 'results')
+$env:PYTHONPATH = $PWD
+
+# (opcional) activar entorno virtual
+# .\.venv\Scripts\Activate.ps1
+
+# Generar métricas y modelos
+python .\scripts\extract_report_numbers.py
+
+# Generar visualizaciones (CSV + PNGs)
+python .\scripts\generate_visualizations.py
+
+# Alternativa usando Docker Compose (construir y levantar servicios)
+docker-compose up --build -d
+
+```
+
+Archivos y artefactos generados:
+
+- `results/report_numbers.json` — KPIs y listas Top-N usadas en el informe.
+- `results/business_insights.json` — segmentación, centroides, reglas de asociación.
+- `results/kmeans_model.pkl`, `results/scaler.pkl` — modelo y scaler persistidos.
+- `results/plots/` — PNGs y CSVs de visualizaciones (ej.: `timeseries_daily.png`, `boxplot_customers.png`, `heatmap_features.png`).
+
+Notas:
+
+- Asegúrate de usar las versiones indicadas en `requirements.txt` para reproducibilidad.
+- Si subes nuevos archivos CSV a `Transactions/`, llama a `repo.refresh()` o usa el endpoint `POST /refresh` para que los modelos y reglas incluyan los nuevos datos.
+
 
 
 ## Anexos

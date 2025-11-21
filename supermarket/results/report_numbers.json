@@ -1,0 +1,184 @@
+{
+  "total_transactions": 1108987,
+  "total_units": 10591793,
+  "unique_customers": 131186,
+  "unique_products": 449,
+  "top_products": [
+    {
+      "product_code": "5",
+      "count": 300526
+    },
+    {
+      "product_code": "10",
+      "count": 290313
+    },
+    {
+      "product_code": "3",
+      "count": 269855
+    },
+    {
+      "product_code": "4",
+      "count": 260418
+    },
+    {
+      "product_code": "6",
+      "count": 254644
+    },
+    {
+      "product_code": "8",
+      "count": 253899
+    },
+    {
+      "product_code": "7",
+      "count": 225877
+    },
+    {
+      "product_code": "16",
+      "count": 224159
+    },
+    {
+      "product_code": "11",
+      "count": 221968
+    },
+    {
+      "product_code": "9",
+      "count": 212480
+    }
+  ],
+  "top_clients": [
+    {
+      "customer": "336296",
+      "transactions": 535
+    },
+    {
+      "customer": "440157",
+      "transactions": 163
+    },
+    {
+      "customer": "806377",
+      "transactions": 159
+    },
+    {
+      "customer": "576930",
+      "transactions": 157
+    },
+    {
+      "customer": "525328",
+      "transactions": 149
+    },
+    {
+      "customer": "307063",
+      "transactions": 148
+    },
+    {
+      "customer": "517807",
+      "transactions": 144
+    },
+    {
+      "customer": "908225",
+      "transactions": 134
+    },
+    {
+      "customer": "51733",
+      "transactions": 130
+    },
+    {
+      "customer": "212565",
+      "transactions": 129
+    }
+  ],
+  "top_days": [
+    {
+      "date": "2013-06-15",
+      "transactions": 9476
+    },
+    {
+      "date": "2013-05-11",
+      "transactions": 8854
+    },
+    {
+      "date": "2013-02-03",
+      "transactions": 8523
+    },
+    {
+      "date": "2013-03-03",
+      "transactions": 8426
+    },
+    {
+      "date": "2013-06-01",
+      "transactions": 8420
+    },
+    {
+      "date": "2013-04-28",
+      "transactions": 8286
+    },
+    {
+      "date": "2013-04-07",
+      "transactions": 8265
+    },
+    {
+      "date": "2013-03-02",
+      "transactions": 8160
+    },
+    {
+      "date": "2013-06-29",
+      "transactions": 8156
+    },
+    {
+      "date": "2013-04-21",
+      "transactions": 8126
+    }
+  ],
+  "top_categories": [
+    {
+      "category_id": "6",
+      "category_name": "VERDURAS RAIZ,TUBERCULO Y BULBOS",
+      "count": 1811523
+    },
+    {
+      "category_id": "3",
+      "category_name": "VERDURAS DE FRUTOS",
+      "count": 1410750
+    },
+    {
+      "category_id": "18",
+      "category_name": "VERDURAS DE HOJAS",
+      "count": 729513
+    },
+    {
+      "category_id": "20",
+      "category_name": "AROMATICAS CONDIMENTOS",
+      "count": 491896
+    },
+    {
+      "category_id": "28",
+      "category_name": "AROMATICAS MEDICINALES",
+      "count": 294753
+    },
+    {
+      "category_id": "31",
+      "category_name": "LEGUMBRES VERDES",
+      "count": 125567
+    },
+    {
+      "category_id": "1",
+      "category_name": "GRUPO FRUVER-EXCEPCIONES",
+      "count": 116773
+    },
+    {
+      "category_id": "41",
+      "category_name": "LULO NACIONAL",
+      "count": 63669
+    },
+    {
+      "category_id": "13",
+      "category_name": "GALLETAS",
+      "count": 58857
+    },
+    {
+      "category_id": "27",
+      "category_name": "SOPAS-CREMAS-CALDOS",
+      "count": 40827
+    }
+  ]
+}
