@@ -530,10 +530,10 @@ El sistema genera recomendaciones automáticas basadas en:
 
 **Recomendaciones de Negocio:**
 
-- 🎉 Activación inicial con descuentos fuertes en la próxima compra
-- 📬 Campañas de email con productos esenciales acorde al perfil
-- 🆓 Pruebas gratuitas y promociones de nuevos productos
-- 🌟 Incentivos para expandir categorías: cupones dirigidos a nuevos tipos de productos
+- Activación inicial con descuentos fuertes en la próxima compra
+- Campañas de email con productos esenciales acorde al perfil
+- Pruebas gratuitas y promociones de nuevos productos
+- Incentivos para expandir categorías: cupones dirigidos a nuevos tipos de productos
 
 ---
 
@@ -543,9 +543,9 @@ El sistema genera recomendaciones automáticas basadas en:
 
 **Recomendaciones de Negocio:**
 
-- 🎯 Programas de fidelización y promociones personalizadas
-- 🔔 Promociones segmentadas en categorías recurrentes
-- 💳 Ofertas para incrementar el volumen promedio del ticket
+- Programas de fidelización y promociones personalizadas
+- Promociones segmentadas en categorías recurrentes
+- Ofertas para incrementar el volumen promedio del ticket
 
 ---
 
@@ -555,10 +555,10 @@ El sistema genera recomendaciones automáticas basadas en:
 
 **Recomendaciones de Negocio:**
 
-- 🎉 Activación inicial con descuentos fuertes en la próxima compra
-- 📬 Campañas de email con productos esenciales acorde al perfil
-- 🆓 Pruebas gratuitas y promociones de nuevos productos
-- 🌟 Incentivos para expandir categorías: cupones dirigidos a nuevos tipos de productos
+- Activación inicial con descuentos fuertes en la próxima compra
+- Campañas de email con productos esenciales acorde al perfil
+- Pruebas gratuitas y promociones de nuevos productos
+- Incentivos para expandir categorías: cupones dirigidos a nuevos tipos de productos
 
 ---
 
@@ -568,19 +568,19 @@ El sistema genera recomendaciones automáticas basadas en:
 
 **Recomendaciones de Negocio:**
 
-- 🎖️ Club VIP: Acceso anticipado a productos exclusivos
-- 🧠 Recomendaciones predictivas basadas en comportamiento
-- 🎀 Beneficios personalizados según categorías favoritas
-- 🔍 Sistema de sugerencias basado en IA para explorar nuevas categorías
+- Club VIP: Acceso anticipado a productos exclusivos
+- Recomendaciones predictivas basadas en comportamiento
+- Beneficios personalizados según categorías favoritas
+- Sistema de sugerencias basado en IA para explorar nuevas categorías
 
 ### 5.2 Recomendaciones Transversales por Diversidad
 
 **Alta diversidad:**
-- 🔍 Sistema de sugerencias basado en IA para explorar nuevas categorías
+- Sistema de sugerencias basado en IA para explorar nuevas categorías
 - Enviar recomendaciones de productos relacionados pero no comprados
 
 **Baja diversidad:**
-- 🌟 Incentivos para expandir categorías: cupones dirigidos a nuevos tipos de productos
+- Incentivos para expandir categorías: cupones dirigidos a nuevos tipos de productos
 - Educación del cliente (ej. recetas, usos alternativos)
 
 ---
