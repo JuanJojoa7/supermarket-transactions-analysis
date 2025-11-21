@@ -83,7 +83,7 @@ Donde:
 ### 2.1 Pipeline de Procesamiento
 
 ```
-[CSVs] → [Lectura/Validación] → [Normalización] → [Feature Engineering] → [Modelos]
+[CSVs] → [Ingesta y Parseo] → [Limpieza & Normalización] → [Explosión] → [Mapeo de categorías] → [Feature Engineering & Agregados]
 ```
 
 #### Fase 1: Ingesta y Preprocesamiento
@@ -103,9 +103,9 @@ Donde:
 3. **Explosión de Productos**  
    - Se aplica `explode('products_list')` para obtener una fila por producto en `transactions_exploded`.
 
-4. **Mapeo de Categorías**  
+4. **Mapeo de Categorías**
    - Se construye `product_to_category` desde `ProductCategory.csv` y se aplica con `map()` sobre `product_code`.
-   - Si un `product_code` no tiene mapeo, el código deja `NaN` en `category_id` (no se rellena automáticamente con "Unknown" en la implementación actual).
+   - Si un `product_code` no tiene mapeo, **se deja como `NaN` en la columna `category_id`** (no se agrupa bajo una categoría genérica). Esto evita imponer una única etiqueta a productos heterogéneos y previene sesgos en los conteos por categoría —por tanto, los productos sin mapeo no aparecerán en los agregados de categorías a menos que se les asigne explícitamente una categoría.
 
 5. **Normalización y Limpieza de Nuevas Transacciones (upload)**  
    - `process_new_transactions()` intenta detectar el formato contando separadores en la primera línea; acepta 3 o 4 columnas. Si son 3 columnas, asigna `store=store_id` por defecto.
@@ -185,26 +185,6 @@ El siguiente texto describe el algoritmo tal como está implementado en `backend
 
 En la práctica, `kmeans_segments` implementa exactamente este flujo: vectoriza, filtra outliers (si se solicita), normaliza, entrena K‑Means, persiste el modelo y devuelve centros interpretables y asignaciones para uso en el dashboard y en recomendaciones de negocio.
 
-#### Justificación Técnica
-
-**¿Por qué usar matriz para vectorización?**
-
-**Sí, K-Means requiere matriz NumPy 2D**:
-- Entrada: `X` con forma `(n_samples, n_features)` — matriz densa
-- `StandardScaler` opera sobre columnas (features) de la matriz
-- `KMeans.fit_predict()` calcula distancias euclidianas en espacio n-dimensional
-- La conversión `.values` transforma el DataFrame de pandas en `ndarray` compatible
-
-**Ventajas del enfoque:**
-- Operaciones vectorizadas (NumPy) → cálculo eficiente
-- StandardScaler maneja media=0, std=1 por feature
-- Centroides interpretables tras inversión de escala
-
-**Limitaciones consideradas:**
-- Features deben ser numéricas (categóricas requieren encoding previo)
-- NaNs deben imputarse antes de scaler (actualmente no hay NaNs por construcción)
-- Outliers afectan centroides → se mitiga con filtrado IQR
-
 ### 2.3 Sistema de Recomendaciones (Apriori)
 
 **Archivo**: `backend/app/analytics/recommender.py`
@@ -250,8 +230,8 @@ Para cada par (A, B):
 rules.append({
     'antecedent': a,
     'consequent': b,
-    'antecedent_category': cat_name_map.get(prod_cat_map.get(a)),
-    'consequent_category': cat_name_map.get(prod_cat_map.get(b)),
+    'antecedent_category': cat_name_map.get(prod_cat_map.get(a, 'Unknown'), 'Sin categoría'),
+    'consequent_category': cat_name_map.get(prod_cat_map.get(b, 'Unknown'), 'Sin categoría'),
     'support': support_ab,
     'confidence': conf_ab,
     'lift': lift_ab
@@ -280,7 +260,7 @@ async def startup_event():
 
 - Direccionalidad de reglas: para cada par `(a,b)` se calculan ambas direcciones `A→B` y `B→A` y se añaden las reglas cuya confianza (`conf_ab` o `conf_ba`) supera `MIN_CONFIDENCE`. Es decir, la generación es potencialmente bidireccional.
 
-- Manejo de categorías faltantes: al enriquecer las reglas se obtiene la categoría con `prod_cat_map.get(product, 'Unknown')` y luego el nombre con `cat_name_map.get(category_id, 'Sin categoría')`. En la práctica, si falta mapeo el informe mostrará "Unknown"/"Sin categoría".
+- Manejo de categorías faltantes: al enriquecer las reglas se obtiene la categoría con `prod_cat_map.get(product)` y luego el nombre con `cat_name_map.get(category_id, 'Sin categoría')`. En la práctica, los productos sin mapeo quedan como `NaN` en `category_id`; al presentar tablas o visualizaciones se puede optar por mostrar una etiqueta visual como "Sin categoría", pero internamente esos productos no se agregan a los conteos por categoría hasta que se les asigne explícitamente una categoría.
 
 - Comportamiento de caché (lazy vs precarga): `get_rules()` construye las reglas bajo demanda si `_cached_rules` está vacío (comportamiento lazy); `initialize_rules()` precarga las reglas en `startup` para evitar cómputo en requests. Tras subir o actualizar datos, es necesario ejecutar `repo.refresh()` y volver a inicializar las reglas para que incluyan los nuevos datos.
 
@@ -522,26 +502,61 @@ results/
 **Input:** Cliente ID `530`
 
 **Proceso:**
-1. Obtener historial: `[20, 3, 1, 9, 17, ...]`
-2. Buscar reglas: `antecedent in historial AND consequent NOT in historial`
-3. Ordenar por lift descendente
-4. Top 5:
+1. Obtener historial del cliente 530.
+2. Buscar reglas: `antecedent in historial AND consequent NOT in historial`.
+3. Ordenar por lift descendente.
+4. Top 5 recomendaciones reales:
 
 ```json
 {
-  "customer": "530",
-  "recommendations": [
-    {
-      "antecedent": "20",
-      "consequent": "16",
-      "antecedent_category": "Bebidas",
-      "consequent_category": "Snacks",
-      "support": 0.0234,
-      "confidence": 0.58,
-      "lift": 3.92
-    },
-    ...
-  ]
+   "customer":  "530",
+   "recommendations":  [
+      {
+         "antecedent":  "1",
+         "consequent":  "2",
+         "antecedent_category":  "Sin categoría",
+         "consequent_category":  "VERDURAS DE FRUTOS",
+         "support":  0.042977960967982495,
+         "confidence":  0.5364865321191792,
+         "lift":  5.2536653815168055
+      },
+      {
+         "antecedent":  "20",
+         "consequent":  "24",
+         "antecedent_category":  "VERDURAS RAIZ,TUBERCULO Y BULBOS",
+         "consequent_category":  "VERDURAS DE FRUTOS",
+         "support":  0.05379053135879862,
+         "confidence":  0.4217876107446139,
+         "lift":  3.8053153794832264
+      },
+      {
+         "antecedent":  "20",
+         "consequent":  "37",
+         "antecedent_category":  "VERDURAS RAIZ,TUBERCULO Y BULBOS",
+         "consequent_category":  "VERDURAS DE HOJAS",
+         "support":  0.04288508341396247,
+         "confidence":  0.3362747385613983,
+         "lift":  3.3299786899990123
+      },
+      {
+         "antecedent":  "20",
+         "consequent":  "27",
+         "antecedent_category":  "VERDURAS RAIZ,TUBERCULO Y BULBOS",
+         "consequent_category":  "AROMATICAS CONDIMENTOS",
+         "support":  0.04331340223104509,
+         "confidence":  0.3396333142424821,
+         "lift":  3.3082909992255383
+      },
+      {
+         "antecedent":  "20",
+         "consequent":  "30",
+         "antecedent_category":  "VERDURAS RAIZ,TUBERCULO Y BULBOS",
+         "consequent_category":  "Sin categoría",
+         "support":  0.04923953121181763,
+         "confidence":  0.386101860297393,
+         "lift":  3.198299524534464
+      }
+   ]
 }
 ```
 
@@ -549,16 +564,58 @@ results/
 
 **Input:** Producto `5`
 
-**Output:** Productos frecuentemente comprados junto con `5`:
+**Output:** Productos frecuentemente comprados junto con `5` (valores reales):
 
 ```json
 {
-  "product": "5",
-  "recommendations": [
-    {"consequent": "16", "lift": 4.23, "confidence": 0.65, ...},
-    {"consequent": "10", "lift": 3.87, "confidence": 0.61, ...},
-    ...
-  ]
+   "product":  "5",
+   "recommendations":  [
+      {
+         "antecedent":  "5",
+         "consequent":  "12",
+         "antecedent_category":  "AROMATICAS CONDIMENTOS",
+         "consequent_category":  "Sin categoría",
+         "support":  0.11342423310642956,
+         "confidence":  0.4185528040835069,
+         "lift":  2.209479289141598
+      },
+      {
+         "antecedent":  "5",
+         "consequent":  "14",
+         "antecedent_category":  "AROMATICAS CONDIMENTOS",
+         "consequent_category":  "VERDURAS DE FRUTOS",
+         "support":  0.09345646071595068,
+         "confidence":  0.3448686636098041,
+         "lift":  2.1290783740864527
+      },
+      {
+         "antecedent":  "5",
+         "consequent":  "6",
+         "antecedent_category":  "AROMATICAS CONDIMENTOS",
+         "consequent_category":  "AROMATICAS MEDICINALES",
+         "support":  0.13042353066356954,
+         "confidence":  0.48128281746005336,
+         "lift":  2.0960100685135803
+      },
+      {
+         "antecedent":  "5",
+         "consequent":  "13",
+         "antecedent_category":  "AROMATICAS CONDIMENTOS",
+         "consequent_category":  "VERDURAS RAIZ,TUBERCULO Y BULBOS",
+         "support":  0.09314446427234944,
+         "confidence":  0.3437173489149025,
+         "lift":  2.058563737712935
+      },
+      {
+         "antecedent":  "5",
+         "consequent":  "19",
+         "antecedent_category":  "AROMATICAS CONDIMENTOS",
+         "consequent_category":  "Sin categoría",
+         "support":  0.09063496686615803,
+         "confidence":  0.3344569188689165,
+         "lift":  2.0216626155422124
+      }
+   ]
 }
 ```
 
@@ -923,19 +980,6 @@ lift = 3.92       (Comprar 5 aumenta 3.92x la probabilidad de comprar 16)
 4. **Caching agresivo:**
    - Redis para reglas de asociación
    - Joblib con compresión para modelos
-
----
-
-## Contacto y Soporte
-
-**Autor:** JuanJojoa7  
-**Repositorio:** [github.com/JuanJojoa7/supermarket-transactions-analysis](https://github.com/JuanJojoa7/supermarket-transactions-analysis)  
-**Documentación API:** http://localhost:8000/docs (cuando está corriendo)
-
-**Para reportar issues o contribuir:**
-- Abrir issue en GitHub
-- Pull requests bienvenidos
-- Seguir guías de estilo (PEP 8 para Python)
 
 ---
 
