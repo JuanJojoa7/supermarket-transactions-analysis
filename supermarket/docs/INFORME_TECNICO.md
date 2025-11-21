@@ -34,7 +34,7 @@ Donde:
 - `customer`: ID del cliente
 - `products`: Lista de códigos de productos separados por espacios
 
-**Formato de prouctos:**
+**Formato de productos:**
 ```
 product|category
 123|1
@@ -70,7 +70,7 @@ Donde:
 
 1. **Header incorrecto en ProductCategory.csv**: Se detectó un encabezado `v.Code_pr|v.code` que se leía como dato. **Solución**: `skiprows=1` al leer el CSV.
 
-2. **Productos sin categoría**: ~45.9% de los productos más vendidos no tenían categoría mapeada. **Solución**: Corrección del mapeo y asignación de categoría "Unknown" para productos faltantes.
+2. **Productos sin categoría**: ~45.9% de los productos más vendidos no tenían categoría mapeada. **Solución**: Corrección del mapeo y asignación de categoría a nivel de presentacion cmo Sin categoria.
 
 3. **Outliers extremos**: Clientes con valores atípicos (ej. 407.1 items totales) distorsionaban los centroides. **Solución**: Filtrado IQR antes de clustering.
 
@@ -110,7 +110,7 @@ Donde:
 5. **Normalización y Limpieza de Nuevas Transacciones (upload)**  
    - `process_new_transactions()` intenta detectar el formato contando separadores en la primera línea; acepta 3 o 4 columnas. Si son 3 columnas, asigna `store=store_id` por defecto.
    - Valida y parsea fechas (intenta `%Y-%m-%d`, luego inferencia), y elimina filas con fechas inválidas.
-   - Antes de guardar el CSV, `process_new_transactions()` convierte `store` a `int` y las demás columnas a tipos normalizados. (Nota: la lectura posterior convierte `store` a `str` en `_read_transactions()`.)
+   - Antes de guardar el CSV, `process_new_transactions()` convierte `store` a `int` y las demás columnas a tipos normalizados. Al leerlos posteriormente en el repositorio con `_read_transactions()` se normaliza a `str` para consistencia en calves y joins.
    - Se guarda el CSV limpio en `Transactions/` con nombre `{store}_Tran_{timestamp}.csv` y fecha formateada `YYYY-MM-DD`.
 
 6. **Actualización del Repositorio en Memoria**  
@@ -125,6 +125,15 @@ Features generadas por cliente:
 - `total_items`: Total de productos comprados
 - `distinct_products`: Productos únicos diferentes
 - `distinct_categories`: Categorías diferentes exploradas
+
+#### Cómo estas transformaciones ayudan al análisis
+
+- **Parseo robusto de fechas:** convertir `date` a `datetime` permite todas las analíticas temporales (resampling diario/semanal/mensual), detección de picos y ventanas móviles para tendencias. Esto es la base para las series temporales y para identificar los `Días pico` reportados.
+- **Explosión de productos (`explode`):** al desagregar la columna `products_list` se obtiene una fila por ítem, lo que habilita conteos por producto, cálculo de `Top‑N`, y el cómputo de pares para reglas de asociación. Sin esta transformación no sería posible generar las métricas por producto ni las reglas de Apriori.
+- **Mapeo de categorías (mantener `NaN` para no mapeados):** evita introducir una categoría artificial que distorsione agregados por categoría. Para interfaces y reportes se usa una etiqueta de presentación (`Sin categoría`) pero los agregados numéricos se calculan sobre productos con categoría asignada.
+- **Filtrado IQR antes de clustering:** elimina temporalmente outliers que pueden sesgar centroides; esto mejora estabilidad y hace que las descripciones de clusters (p.ej. `avg basket size`) sean representativas del grupo mediano.
+- **Normalización (`StandardScaler`) antes de K‑Means:** garantiza que features con escalas distintas no dominen la métrica de distancia (euclidiana), produciendo clusters más interpretables.
+- **Feature engineering:** Calcular features como frequency, total_items, distinct_products y distinct_categories permite transformar el historial de compras de cada cliente (que originalmente es una lista de transacciones dispersas) en un vector numérico compacto y comparable. Esto se usa en k-means más adelante.
 
 ### 2.2 Segmentación de Clientes (K-Means)
 
@@ -348,146 +357,30 @@ Top lists (extracto):
 - Auditar clientes outliers (alto volumen) para determinar si son cuentas institucionales o anomalías y ofrecer condiciones especiales si son reales.
 - Extraer y usar Top‑10 reglas de asociación (por `lift`) para recomendaciones en producto/checkout y para bundles en promociones.
 
-
-
-### 3.3 Distribución de Clientes por Cluster
-
-**Cluster 0 (24,185 clientes - 21.8%)**
-
-**Perfil:** Clientes frecuentes, volumen medio de compra
-
-**Características Promedio:**
- 
-- 🔄 Frecuencia (promedio): **8.45**
-- 🛒 Total items (promedio): **46.73**
-- 📦 Productos distintos (promedio): **29.22**
-- 🏷️ Categorías distintas (promedio): **5.98**
-- 🧾 Avg basket size: **5.81**
-
-**Recomendaciones de Negocio:**
-
-- 🎉 Activación inicial con descuentos fuertes en la próxima compra
-- 📬 Campañas de email con productos esenciales acorde al perfil
-- 🆓 Pruebas gratuitas y promociones de nuevos productos
-- 🌟 Incentivos para expandir categorías: cupones dirigidos a nuevos tipos de productos
-
----
-
-**Cluster 1 (55,055 clientes - 49.6%)**
-
-**Perfil:** Clientes esporádicos, compras pequeñas
-
-**Características Promedio:**
-
-- 🔄 Frecuencia (promedio): **2.00**
-- 🛒 Total items (promedio): **6.95**
-- 📦 Productos distintos (promedio): **6.13**
-- 🏷️ Categorías distintas (promedio): **2.09**
-- 🧾 Avg basket size: **3.53**
-
-**Recomendaciones de Negocio:**
-
-- 🎯 Programas de fidelización y promociones personalizadas
-- 🔔 Promociones segmentadas en categorías recurrentes
-- 💳 Ofertas para incrementar el volumen promedio del ticket
-
----
-
-**Cluster 2 (16,195 clientes - 14.6%)**
-
-**Perfil:** Clientes ocasionales, compras medianas
-
-**Características Promedio:**
-
-- 🔄 Frecuencia (promedio): **14.83**
-- 🛒 Total items (promedio): **140.18**
-- 📦 Productos distintos (promedio): **61.58**
-- 🏷️ Categorías distintas (promedio): **8.37**
-- 🧾 Avg basket size: **10.37**
-
-**Recomendaciones de Negocio:**
-
-- 🎉 Activación inicial con descuentos fuertes en la próxima compra
-- 📬 Campañas de email con productos esenciales acorde al perfil
-- 🆓 Pruebas gratuitas y promociones de nuevos productos
-- 🌟 Incentivos para expandir categorías: cupones dirigidos a nuevos tipos de productos
-
----
-
-**Cluster 3 (15,483 clientes - 14.0%)**
-
-**Perfil:** Clientes muy frecuentes (VIP), compras de alto volumen y gran diversidad de productos
-
-**Características Promedio:**
-
-- 🔄 Frecuencia (promedio): **2.99**
-- 🛒 Total items (promedio): **38.85**
-- 📦 Productos distintos (promedio): **27.59**
-- 🏷️ Categorías distintas (promedio): **5.54**
-- 🧾 Avg basket size: **13.11**
-
-**Recomendaciones de Negocio:**
-
-- 🎖️ Club VIP: Acceso anticipado a productos exclusivos
-- 🧠 Recomendaciones predictivas basadas en comportamiento
-- 🎀 Beneficios personalizados según categorías favoritas
-- 🔍 Sistema de sugerencias basado en IA para explorar nuevas categorías
-
 ---
 
 ## 4. Resultados de Modelos
 
 ### 4.1 Segmentación K-Means
 
-#### Centroides Interpretados (k=4, ejemplo)
+#### Centroides Interpretados (k=4)
 
 | Cluster | Frequency | Total Items | Distinct Products | Distinct Categories | Descripción |
 |---------|-----------|-------------|-------------------|---------------------|-------------|
 | 0 | 8.45 | 46.73 | 29.22 | 5.98 | Clientes frecuentes, volumen medio |
 | 1 | 2.00 | 6.95 | 6.13 | 2.09 | Clientes esporádicos, compras pequeñas |
-| 2 | 14.83 | 140.18 | 61.58 | 8.37 | Clientes muy frecuentes (VIP), alto volumen |
-| 3 | 2.99 | 38.85 | 27.59 | 5.54 | Clientes ocasionales, compras medianas |
+| 2 | 2.99 | 38.85 | 27.59 | 5.54 | Clientes ocasionales, compras medianas |
+| 3 | 14.83 | 140.18 | 61.58 | 8.37 | Clientes muy frecuentes (VIP), alto volumen |
 
 **Nota:** Valores ilustrativos; ejecutar `/segmentation/kmeans?k=4` para datos actuales.
 
-#### Asignaciones
+**Cluster 0 (24,185 clientes - 21.8%)**
 
-Formato JSON devuelto por API:
-```json
-{
-  "k": 4,
-   "counts": {"0": 24185, "1": 55055, "2": 16195, "3": 15483},
-  "centers": [...],
-  "assignments": [
-    {"customer": "530", "cluster": 2},
-    {"customer": "587", "cluster": 1},
-    ...
-  ],
-  "descriptions": {
-    "0": "Clientes ocasionales, compras pequeñas",
-    ...
-  },
-  "business_recommendations": {
-    "0": [
-      "🎯 Campañas dirigidas para aumentar frecuencia mensual",
-      "📅 Recordatorios basados en ciclos reales de compra",
-      ...
-    ]
-  },
-   "outliers_removed": 20268,
-   "total_customers": 110918
-}
-```
+**Cluster 1 (55,055 clientes - 49.6%)**
 
-#### Persistencia de Modelos
+**Cluster 2 (16,195 clientes - 14.6%)**
 
-```
-results/
-├── kmeans_model.pkl      # Modelo KMeans entrenado
-├── scaler.pkl            # StandardScaler ajustado
-├── business_insights.txt # Resumen legible
-└── business_insights.json # JSON completo
-```
+**Cluster 3 (15,483 clientes - 14.0%)**
 
 ### 4.2 Sistema de Recomendaciones
 
@@ -630,57 +523,55 @@ El sistema genera recomendaciones automáticas basadas en:
 - **Volumen**: alto, medio, bajo
 - **Diversidad**: alta, media, baja
 
-#### Cluster 0: Clientes Ocasionales (Frecuencia Media, Volumen Medio)
 
-**Perfil:**
-- Compran 3-5 veces al año
-- Ticket promedio moderado
-- Diversidad de productos media
+**Cluster 0 (24,185 clientes - 21.8%)**
 
-**Recomendaciones:**
-- 🎯 Campañas dirigidas para aumentar frecuencia mensual
-- 📅 Recordatorios basados en ciclos reales de compra
-- 🏆 Retos gamificados con premios por constancia
+**Perfil:** Clientes frecuentes, volumen medio de compra
 
+**Recomendaciones de Negocio:**
 
-#### Cluster 1: Clientes Esporádicos (Frecuencia Baja, Volumen Bajo)
-
-**Perfil:**
-- Compran 1-2 veces al año
-- Ticket bajo
-- Diversidad limitada
-
-**Recomendaciones:**
-- 🎉 Activación inicial con descuentos fuertes en la próxima compra (20-30%)
+- 🎉 Activación inicial con descuentos fuertes en la próxima compra
 - 📬 Campañas de email con productos esenciales acorde al perfil
 - 🆓 Pruebas gratuitas y promociones de nuevos productos
+- 🌟 Incentivos para expandir categorías: cupones dirigidos a nuevos tipos de productos
 
+---
 
-#### Cluster 2: Clientes Frecuentes (Frecuencia Alta, Volumen Medio-Alto)
+**Cluster 1 (55,055 clientes - 49.6%)**
 
-**Perfil:**
-- Compran 10-15 veces al año
-- Ticket moderado-alto
-- Buena diversidad de categorías
+**Perfil:** Clientes esporádicos, compras pequeñas
 
-**Recomendaciones:**
-- ⭐ Programa de fidelización con recompensas escalonadas
-- 🔔 Promociones personalizadas en categorías recurrentes
+**Recomendaciones de Negocio:**
+
+- 🎯 Programas de fidelización y promociones personalizadas
+- 🔔 Promociones segmentadas en categorías recurrentes
 - 💳 Ofertas para incrementar el volumen promedio del ticket
 
+---
 
-#### Cluster 3: Clientes VIP (Frecuencia Muy Alta, Volumen Alto)
+**Cluster 2 (16,195 clientes - 14.6%)**
 
-**Perfil:**
-- Compran 30+ veces al año
-- Ticket alto
-- Gran variedad de productos y categorías
+**Perfil:** Clientes ocasionales, compras medianas
 
-**Recomendaciones:**
+**Recomendaciones de Negocio:**
+
+- 🎉 Activación inicial con descuentos fuertes en la próxima compra
+- 📬 Campañas de email con productos esenciales acorde al perfil
+- 🆓 Pruebas gratuitas y promociones de nuevos productos
+- 🌟 Incentivos para expandir categorías: cupones dirigidos a nuevos tipos de productos
+
+---
+
+**Cluster 3 (15,483 clientes - 14.0%)**
+
+**Perfil:** Clientes muy frecuentes (VIP), compras de alto volumen y gran diversidad de productos
+
+**Recomendaciones de Negocio:**
+
 - 🎖️ Club VIP: Acceso anticipado a productos exclusivos
-- 🧠 Recomendaciones predictivas basadas en comportamiento (IA)
+- 🧠 Recomendaciones predictivas basadas en comportamiento
 - 🎀 Beneficios personalizados según categorías favoritas
-
+- 🔍 Sistema de sugerencias basado en IA para explorar nuevas categorías
 
 ### 5.2 Recomendaciones Transversales por Diversidad
 
