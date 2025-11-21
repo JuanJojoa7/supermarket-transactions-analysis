@@ -298,9 +298,16 @@ services:
       - ${AIRFLOW_PROJ_DIR:-.}/results:/app/results
     ports:
       - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8000/health"]
+      interval: 5s
+      timeout: 10s
+      retries: 12
+      start_period: 30s
     depends_on:
       postgres:
         condition: service_healthy
+    restart: always
 
   # Streamlit frontend for dashboards
   frontend:
@@ -312,7 +319,9 @@ services:
     ports:
       - "8501:8501"
     depends_on:
-      - api
+      api:
+        condition: service_healthy
+    restart: always
 
 volumes:
   postgres-db-volume:
