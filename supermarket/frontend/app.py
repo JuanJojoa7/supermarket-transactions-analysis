@@ -255,7 +255,25 @@ if mode == 'Por Cliente':
                 
                 st.caption("**Confianza:** Probabilidad de comprar el producto recomendado | **Lift:** Qué tan fuerte es la asociación | **Soporte:** Frecuencia de la combinación")
             else:
-                st.warning(f"No hay recomendaciones disponibles para el cliente {cust_id}. El cliente puede no tener historial suficiente.")
+                st.warning(f"No hay recomendaciones disponibles para el cliente {cust_id}. Mostrando sugerencias alternativas (top reglas).")
+                try:
+                    rules_resp = requests.get(f"{API_BASE}/rules", timeout=10).json()
+                    if rules_resp.get('rules'):
+                        alt_data = []
+                        for i, r in enumerate(rules_resp['rules'][:5], 1):
+                            alt_data.append({
+                                '#': i,
+                                'Antecedent': r.get('antecedent'),
+                                'Consequent': r.get('consequent'),
+                                'Categoría': r.get('consequent_category', 'N/A'),
+                                'Confianza': f"{r['confidence']:.2%}",
+                                'Lift': f"{r['lift']:.2f}",
+                                'Soporte': f"{r['support']:.2%}"
+                            })
+                        st.markdown("**Sugerencias alternativas (Top reglas por lift):**")
+                        st.table(pd.DataFrame(alt_data))
+                except Exception as e:
+                    st.error(f"Error al cargar reglas alternativas: {e}")
         except Exception as e:
             st.error(f"Error: {e}")
 else:
