@@ -105,7 +105,7 @@ Donde:
 
 4. **Mapeo de Categorías**
    - Se construye `product_to_category` desde `ProductCategory.csv` y se aplica con `map()` sobre `product_code`.
-   - Si un `product_code` no tiene mapeo, **se deja como `NaN` en la columna `category_id`** (no se agrupa bajo una categoría genérica). Esto evita imponer una única etiqueta a productos heterogéneos y previene sesgos en los conteos por categoría —por tanto, los productos sin mapeo no aparecerán en los agregados de categorías a menos que se les asigne explícitamente una categoría.
+   - Impacto en agregados: los `product_code` sin mapeo quedan como `NaN` en `category_id` y se excluyen de los cálculos numéricos por categoría, evitando sesgos en los totales. Para presentaciones y visualizaciones se les muestra la etiqueta de presentación `"Sin categoría"`, pero esa etiqueta no altera los conteos agregados hasta que se asigne una categoría real.
 
 5. **Normalización y Limpieza de Nuevas Transacciones (upload)**  
    - `process_new_transactions()` intenta detectar el formato contando separadores en la primera línea; acepta 3 o 4 columnas. Si son 3 columnas, asigna `store=store_id` por defecto.
@@ -370,7 +370,7 @@ Top lists (extracto):
 | 0 | 8.45 | 46.73 | 29.22 | 5.98 | Clientes frecuentes, volumen medio |
 | 1 | 2.00 | 6.95 | 6.13 | 2.09 | Clientes esporádicos, compras pequeñas |
 | 2 | 2.99 | 38.85 | 27.59 | 5.54 | Clientes ocasionales, compras medianas |
-| 3 | 14.83 | 140.18 | 61.58 | 8.37 | Clientes muy frecuentes (VIP), alto volumen |
+| 3 | 14.83 | 140.18 | 61.58 | 8.37 | Clientes muy frecuentes, alto volumen |
 
 **Nota:** Valores ilustrativos; ejecutar `/segmentation/kmeans?k=4` para datos actuales.
 
@@ -526,6 +526,8 @@ El sistema genera recomendaciones automáticas basadas en:
 
 **Cluster 0 (24,185 clientes - 21.8%)**
 
+**Título:** Compradores Leales
+
 **Perfil:** Clientes frecuentes, volumen medio de compra
 
 **Recomendaciones de Negocio:**
@@ -539,6 +541,8 @@ El sistema genera recomendaciones automáticas basadas en:
 
 **Cluster 1 (55,055 clientes - 49.6%)**
 
+**Título:** Ocasionales/Potenciales
+
 **Perfil:** Clientes esporádicos, compras pequeñas
 
 **Recomendaciones de Negocio:**
@@ -551,18 +555,22 @@ El sistema genera recomendaciones automáticas basadas en:
 
 **Cluster 2 (16,195 clientes - 14.6%)**
 
-**Perfil:** Clientes ocasionales, compras medianas
+**Título:** Alto Ticket Esporádico
+
+**Perfil:** Clientes que compran con baja frecuencia pero alcanzan tickets altos y alta diversidad (p. ej. compras de stock mensual).
 
 **Recomendaciones de Negocio:**
 
-- Activación inicial con descuentos fuertes en la próxima compra
-- Campañas de email con productos esenciales acorde al perfil
-- Pruebas gratuitas y promociones de nuevos productos
-- Incentivos para expandir categorías: cupones dirigidos a nuevos tipos de productos
+- Programas de retención y re-compra: cupones de recompra, recordatorios personalizados y promociones temporales para acortar el intervalo entre visitas
+- Ofertas por volumen y suscripciones (descuentos por compra en bloque o suscripción periódica) para convertir compras esporádicas en compras más frecuentes
+- Comunicación personalizada post-compra (recomendaciones complementarias y recordatorios) para fomentar recompra antes de que pase mucho tiempo
+- Incentivos específicos para reducir el intervalo entre compras (no focalizar en "activación inicial")
 
 ---
 
 **Cluster 3 (15,483 clientes - 14.0%)**
+
+**Título:** Clientes VIP/Premium
 
 **Perfil:** Clientes muy frecuentes (VIP), compras de alto volumen y gran diversidad de productos
 
